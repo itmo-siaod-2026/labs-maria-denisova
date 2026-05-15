@@ -7,8 +7,8 @@ import matplotlib.pyplot as plt
 
 # Входной файл отчёта JMH (CSV или JSON) и куда сохранить график — при необходимости изменить здесь.
 _PROJECT_ROOT = pathlib.Path(__file__).resolve().parent.parent
-JMH_RESULTS_FILE = _PROJECT_ROOT / "target" / "jmh-results" / "ConcurrentHashMapBenchmark-20260514-001025.csv"
-JMH_CHART_OUTPUT = _PROJECT_ROOT / "target" / "jmh-results" / "jmh-chart.png"
+JMH_RESULTS_FILE = _PROJECT_ROOT / "target" / "jmh-results" / "ConcurrentHashMapBenchmark-20260515-193137.csv"
+JMH_CHART_OUTPUT = _PROJECT_ROOT / "target" / "jmh-results" / "jmh-chart-1.png"
 def parse_bench_name(raw_name: str) -> str:
     name = raw_name.split(".")[-1]
     if name.startswith("concurrent"):

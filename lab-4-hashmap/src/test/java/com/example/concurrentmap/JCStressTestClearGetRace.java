@@ -9,10 +9,10 @@ import org.openjdk.jcstress.infra.results.II_Result;
 
 /**
  * Гонка {@code clear()} и чтения в одном потоке: сначала {@code get(k)}, затем {@code size()}.
- * В таблице ровно одна пара {@code (1,1)}, поэтому исходы кодируют согласованность «ключ есть / карта непуста».
+ * В таблице ровно одна пара {@code (1,1)}, поэтому исходы кодируют согласованность «ключ есть / карта не пуста».
  * <p>
  * Инвариант: при единственном ключе нельзя наблюдать «ключа нет», но {@code size() &gt; 0} — это логически
- * противоречиво и не соответствует слабой, но разумной модели из {@link java.util.concurrent.ConcurrentHashMap}.
+ * противоречиво и не соответствует модели из {@link java.util.concurrent.ConcurrentHashMap}.
  */
 @JCStressTest
 @Outcome(id = "0, 0", expect = Expect.ACCEPTABLE, desc = "Согласованное «пусто»: get(1) == null и size() == 0.")
