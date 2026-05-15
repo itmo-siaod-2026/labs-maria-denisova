@@ -1,0 +1,653 @@
+0
+# VM version: JDK 25.0.1, OpenJDK 64-Bit Server VM, 25.0.1+8-27
+# VM invoker: C:\Users\dmp12\.jdks\openjdk-25.0.1\bin\java.exe
+# VM options: -javaagent:D:\IntelliJ IDEA Community Edition 2025.2.1\lib\idea_rt.jar=2613 -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 1 s each
+# Measurement: 20 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: org.example.RTreeBenchmark.insertAll
+# Parameters: (size = 10000)
+
+# Run progress: 0,00% complete, ETA 00:05:00
+# Fork: 1 of 1
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/C:/Users/dmp12/.m2/repository/org/openjdk/jmh/jmh-core/1.37/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 45581,914 us/op
+# Warmup Iteration   2: 23157,127 us/op
+# Warmup Iteration   3: 24966,573 us/op
+# Warmup Iteration   4: 23391,900 us/op
+# Warmup Iteration   5: 23151,552 us/op
+Iteration   1: 23058,475 us/op
+Iteration   2: 22958,125 us/op
+Iteration   3: 23498,251 us/op
+Iteration   4: 23136,700 us/op
+Iteration   5: 23413,953 us/op
+Iteration   6: 23361,737 us/op
+Iteration   7: 23790,737 us/op
+Iteration   8: 26663,539 us/op
+Iteration   9: 24929,910 us/op
+Iteration  10: 23452,944 us/op
+Iteration  11: 23328,684 us/op
+Iteration  12: 23057,984 us/op
+Iteration  13: 23090,602 us/op
+Iteration  14: 23575,870 us/op
+Iteration  15: 23148,102 us/op
+Iteration  16: 22979,525 us/op
+Iteration  17: 23079,548 us/op
+Iteration  18: 23650,151 us/op
+Iteration  19: 23103,600 us/op
+Iteration  20: 23034,736 us/op
+
+
+"Result ""org.example.RTreeBenchmark.insertAll"":"
+  23515,659 ±(99.9%) 749,303 us/op [Average]
+  (min, avg, max) = (22958,125, 23515,659, 26663,539), stdev = 862,899
+  CI (99.9%): [22766,355, 24264,962] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 25.0.1, OpenJDK 64-Bit Server VM, 25.0.1+8-27
+# VM invoker: C:\Users\dmp12\.jdks\openjdk-25.0.1\bin\java.exe
+# VM options: -javaagent:D:\IntelliJ IDEA Community Edition 2025.2.1\lib\idea_rt.jar=2613 -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 1 s each
+# Measurement: 20 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: org.example.RTreeBenchmark.insertAll
+# Parameters: (size = 100000)
+
+# Run progress: 8,33% complete, ETA 00:04:47
+# Fork: 1 of 1
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/C:/Users/dmp12/.m2/repository/org/openjdk/jmh/jmh-core/1.37/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 1234920,200 us/op
+# Warmup Iteration   2: 945085,400 us/op
+# Warmup Iteration   3: 1013374,100 us/op
+# Warmup Iteration   4: 959743,900 us/op
+# Warmup Iteration   5: 932828,650 us/op
+Iteration   1: 939891,700 us/op
+Iteration   2: 943964,600 us/op
+Iteration   3: 938658,000 us/op
+Iteration   4: 953388,900 us/op
+Iteration   5: 963459,100 us/op
+Iteration   6: 939624,400 us/op
+Iteration   7: 943603,800 us/op
+Iteration   8: 933054,300 us/op
+Iteration   9: 926692,950 us/op
+Iteration  10: 930717,100 us/op
+Iteration  11: 961730,800 us/op
+Iteration  12: 961712,500 us/op
+Iteration  13: 938381,900 us/op
+Iteration  14: 937022,700 us/op
+Iteration  15: 935560,500 us/op
+Iteration  16: 937233,950 us/op
+Iteration  17: 934560,050 us/op
+Iteration  18: 943369,450 us/op
+Iteration  19: 943048,350 us/op
+Iteration  20: 935835,150 us/op
+
+
+"Result ""org.example.RTreeBenchmark.insertAll"":"
+  942075,510 ±(99.9%) 8988,255 us/op [Average]
+  (min, avg, max) = (926692,950, 942075,510, 963459,100), stdev = 10350,888
+  CI (99.9%): [933087,255, 951063,765] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 25.0.1, OpenJDK 64-Bit Server VM, 25.0.1+8-27
+# VM invoker: C:\Users\dmp12\.jdks\openjdk-25.0.1\bin\java.exe
+# VM options: -javaagent:D:\IntelliJ IDEA Community Edition 2025.2.1\lib\idea_rt.jar=2613 -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 1 s each
+# Measurement: 20 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: org.example.RTreeBenchmark.insertAll
+# Parameters: (size = 500000)
+
+# Run progress: 16,67% complete, ETA 00:06:02
+# Fork: 1 of 1
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/C:/Users/dmp12/.m2/repository/org/openjdk/jmh/jmh-core/1.37/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 29806705,900 us/op
+# Warmup Iteration   2: 30213995,200 us/op
+# Warmup Iteration   3: 31197984,700 us/op
+# Warmup Iteration   4: 28784153,100 us/op
+# Warmup Iteration   5: 31928176,400 us/op
+Iteration   1: 29128438,200 us/op
+Iteration   2: 29897170,100 us/op
+Iteration   3: 31953467,600 us/op
+Iteration   4: 28824374,800 us/op
+Iteration   5: 31450827,200 us/op
+Iteration   6: 29781915,800 us/op
+Iteration   7: 29495496,900 us/op
+Iteration   8: 32496492,100 us/op
+Iteration   9: 29364713,700 us/op
+Iteration  10: 29402574,500 us/op
+Iteration  11: 32021286,500 us/op
+Iteration  12: 29694931,100 us/op
+Iteration  13: 29733532,800 us/op
+Iteration  14: 32030905,100 us/op
+Iteration  15: 29950317,400 us/op
+Iteration  16: 29047637,200 us/op
+Iteration  17: 31626240,800 us/op
+Iteration  18: 30260796,700 us/op
+Iteration  19: 28993617,300 us/op
+Iteration  20: 31707989,800 us/op
+
+
+"Result ""org.example.RTreeBenchmark.insertAll"":"
+  30343136,280 ±(99.9%) 1071689,960 us/op [Average]
+  (min, avg, max) = (28824374,800, 30343136,280, 32496492,100), stdev = 1234159,751
+  CI (99.9%): [29271446,320, 31414826,240] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 25.0.1, OpenJDK 64-Bit Server VM, 25.0.1+8-27
+# VM invoker: C:\Users\dmp12\.jdks\openjdk-25.0.1\bin\java.exe
+# VM options: -javaagent:D:\IntelliJ IDEA Community Edition 2025.2.1\lib\idea_rt.jar=2613 -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 1 s each
+# Measurement: 20 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: org.example.RTreeBenchmark.insertAll
+# Parameters: (size = 1000000)
+
+# Run progress: 25,00% complete, ETA 00:41:35
+# Fork: 1 of 1
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/C:/Users/dmp12/.m2/repository/org/openjdk/jmh/jmh-core/1.37/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 168395694,200 us/op
+# Warmup Iteration   2: 174855414,900 us/op
+# Warmup Iteration   3: 172793708,900 us/op
+# Warmup Iteration   4: 169239408,500 us/op
+# Warmup Iteration   5: 169935063,100 us/op
+Iteration   1: 172743119,900 us/op
+Iteration   2: 181201124,400 us/op
+Iteration   3: 177515165,000 us/op
+Iteration   4: 172444622,900 us/op
+Iteration   5: 168147953,500 us/op
+Iteration   6: 168738128,200 us/op
+Iteration   7: 170312140,800 us/op
+Iteration   8: 176451817,900 us/op
+Iteration   9: 179655435,600 us/op
+Iteration  10: 174227361,500 us/op
+Iteration  11: 168418262,200 us/op
+Iteration  12: 171495747,800 us/op
+Iteration  13: 167203493,700 us/op
+Iteration  14: 170214408,100 us/op
+Iteration  15: 173480905,700 us/op
+Iteration  16: 178354123,700 us/op
+Iteration  17: 181294995,600 us/op
+Iteration  18: 176650397,700 us/op
+Iteration  19: 171741370,500 us/op
+Iteration  20: 170390183,800 us/op
+
+
+"Result ""org.example.RTreeBenchmark.insertAll"":"
+  173534037,925 ±(99.9%) 3847482,192 us/op [Average]
+  (min, avg, max) = (167203493,700, 173534037,925, 181294995,600), stdev = 4430766,214
+  CI (99.9%): [169686555,733, 177381520,117] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 25.0.1, OpenJDK 64-Bit Server VM, 25.0.1+8-27
+# VM invoker: C:\Users\dmp12\.jdks\openjdk-25.0.1\bin\java.exe
+# VM options: -javaagent:D:\IntelliJ IDEA Community Edition 2025.2.1\lib\idea_rt.jar=2613 -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 1 s each
+# Measurement: 20 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: org.example.RTreeBenchmark.searchNearest
+# Parameters: (size = 10000)
+
+# Run progress: 33,33% complete, ETA 02:51:57
+# Fork: 1 of 1
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/C:/Users/dmp12/.m2/repository/org/openjdk/jmh/jmh-core/1.37/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 70400,620 us/op
+# Warmup Iteration   2: 34268,890 us/op
+# Warmup Iteration   3: 34034,870 us/op
+# Warmup Iteration   4: 34299,097 us/op
+# Warmup Iteration   5: 34185,180 us/op
+Iteration   1: 34225,313 us/op
+Iteration   2: 34213,503 us/op
+Iteration   3: 34120,830 us/op
+Iteration   4: 33866,260 us/op
+Iteration   5: 33853,750 us/op
+Iteration   6: 34021,813 us/op
+Iteration   7: 34135,617 us/op
+Iteration   8: 34114,627 us/op
+Iteration   9: 34283,383 us/op
+Iteration  10: 34155,527 us/op
+Iteration  11: 34131,933 us/op
+Iteration  12: 34166,353 us/op
+Iteration  13: 34074,703 us/op
+Iteration  14: 34195,610 us/op
+Iteration  15: 34103,310 us/op
+Iteration  16: 34110,393 us/op
+Iteration  17: 36348,807 us/op
+Iteration  18: 34284,023 us/op
+Iteration  19: 34064,563 us/op
+Iteration  20: 34120,487 us/op
+
+
+"Result ""org.example.RTreeBenchmark.searchNearest"":"
+  34229,540 ±(99.9%) 443,716 us/op [Average]
+  (min, avg, max) = (33853,750, 34229,540, 36348,807), stdev = 510,984
+  CI (99.9%): [33785,825, 34673,256] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 25.0.1, OpenJDK 64-Bit Server VM, 25.0.1+8-27
+# VM invoker: C:\Users\dmp12\.jdks\openjdk-25.0.1\bin\java.exe
+# VM options: -javaagent:D:\IntelliJ IDEA Community Edition 2025.2.1\lib\idea_rt.jar=2613 -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 1 s each
+# Measurement: 20 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: org.example.RTreeBenchmark.searchNearest
+# Parameters: (size = 100000)
+
+# Run progress: 41,67% complete, ETA 02:00:59
+# Fork: 1 of 1
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/C:/Users/dmp12/.m2/repository/org/openjdk/jmh/jmh-core/1.37/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 1288022,000 us/op
+# Warmup Iteration   2: 961713,400 us/op
+# Warmup Iteration   3: 979843,350 us/op
+# Warmup Iteration   4: 973136,400 us/op
+# Warmup Iteration   5: 960113,650 us/op
+Iteration   1: 974400,700 us/op
+Iteration   2: 967381,050 us/op
+Iteration   3: 967668,050 us/op
+Iteration   4: 962269,900 us/op
+Iteration   5: 979791,900 us/op
+Iteration   6: 973035,600 us/op
+Iteration   7: 963387,500 us/op
+Iteration   8: 965807,100 us/op
+Iteration   9: 951601,350 us/op
+Iteration  10: 973862,050 us/op
+Iteration  11: 970064,150 us/op
+Iteration  12: 963610,350 us/op
+Iteration  13: 978246,300 us/op
+Iteration  14: 968215,350 us/op
+Iteration  15: 961930,650 us/op
+Iteration  16: 965513,350 us/op
+Iteration  17: 995468,200 us/op
+Iteration  18: 973300,500 us/op
+Iteration  19: 956130,950 us/op
+Iteration  20: 974101,050 us/op
+
+
+"Result ""org.example.RTreeBenchmark.searchNearest"":"
+  969289,302 ±(99.9%) 8133,950 us/op [Average]
+  (min, avg, max) = (951601,350, 969289,302, 995468,200), stdev = 9367,068
+  CI (99.9%): [961155,353, 977423,252] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 25.0.1, OpenJDK 64-Bit Server VM, 25.0.1+8-27
+# VM invoker: C:\Users\dmp12\.jdks\openjdk-25.0.1\bin\java.exe
+# VM options: -javaagent:D:\IntelliJ IDEA Community Edition 2025.2.1\lib\idea_rt.jar=2613 -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 1 s each
+# Measurement: 20 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: org.example.RTreeBenchmark.searchNearest
+# Parameters: (size = 500000)
+
+# Run progress: 50,00% complete, ETA 01:27:13
+# Fork: 1 of 1
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/C:/Users/dmp12/.m2/repository/org/openjdk/jmh/jmh-core/1.37/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 29217118,500 us/op
+# Warmup Iteration   2: 30692262,900 us/op
+# Warmup Iteration   3: 34225649,500 us/op
+# Warmup Iteration   4: 34247442,900 us/op
+# Warmup Iteration   5: 32873944,500 us/op
+Iteration   1: 30531836,300 us/op
+Iteration   2: 28972729,800 us/op
+Iteration   3: 29794979,800 us/op
+Iteration   4: 34238198,800 us/op
+Iteration   5: 34268314,500 us/op
+Iteration   6: 33186768,800 us/op
+Iteration   7: 30971495,300 us/op
+Iteration   8: 28965794,100 us/op
+Iteration   9: 29270813,600 us/op
+Iteration  10: 33890862,700 us/op
+Iteration  11: 34314614,400 us/op
+Iteration  12: 33611265,400 us/op
+Iteration  13: 31524039,500 us/op
+Iteration  14: 29624609,700 us/op
+Iteration  15: 29019561,500 us/op
+Iteration  16: 33621398,600 us/op
+Iteration  17: 34105424,300 us/op
+Iteration  18: 33498372,500 us/op
+Iteration  19: 30886819,900 us/op
+Iteration  20: 28865403,800 us/op
+
+
+"Result ""org.example.RTreeBenchmark.searchNearest"":"
+  31658165,165 ±(99.9%) 1887536,156 us/op [Average]
+  (min, avg, max) = (28865403,800, 31658165,165, 34314614,400), stdev = 2173689,444
+  CI (99.9%): [29770629,009, 33545701,321] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 25.0.1, OpenJDK 64-Bit Server VM, 25.0.1+8-27
+# VM invoker: C:\Users\dmp12\.jdks\openjdk-25.0.1\bin\java.exe
+# VM options: -javaagent:D:\IntelliJ IDEA Community Edition 2025.2.1\lib\idea_rt.jar=2613 -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 1 s each
+# Measurement: 20 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: org.example.RTreeBenchmark.searchNearest
+# Parameters: (size = 1000000)
+
+# Run progress: 58,33% complete, ETA 01:11:46
+# Fork: 1 of 1
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/C:/Users/dmp12/.m2/repository/org/openjdk/jmh/jmh-core/1.37/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 169686191,000 us/op
+# Warmup Iteration   2: 171556246,900 us/op
+# Warmup Iteration   3: 169550575,700 us/op
+# Warmup Iteration   4: 166210699,900 us/op
+# Warmup Iteration   5: 172953921,700 us/op
+Iteration   1: 179461828,200 us/op
+Iteration   2: 174704471,000 us/op
+Iteration   3: 172550026,800 us/op
+Iteration   4: 169074075,100 us/op
+Iteration   5: 170134641,900 us/op
+Iteration   6: 175671328,900 us/op
+Iteration   7: 179983965,900 us/op
+Iteration   8: 174842753,000 us/op
+Iteration   9: 170587348,600 us/op
+Iteration  10: 169226782,800 us/op
+Iteration  11: 170889549,200 us/op
+Iteration  12: 176034743,600 us/op
+Iteration  13: 181397456,400 us/op
+Iteration  14: 176331997,000 us/op
+Iteration  15: 172261784,100 us/op
+Iteration  16: 170555021,500 us/op
+Iteration  17: 169829313,100 us/op
+Iteration  18: 169927709,300 us/op
+Iteration  19: 176888368,400 us/op
+Iteration  20: 182302443,500 us/op
+
+
+"Result ""org.example.RTreeBenchmark.searchNearest"":"
+  174132780,415 ±(99.9%) 3701001,201 us/op [Average]
+  (min, avg, max) = (169074075,100, 174132780,415, 182302443,500), stdev = 4262078,487
+  CI (99.9%): [170431779,214, 177833781,616] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 25.0.1, OpenJDK 64-Bit Server VM, 25.0.1+8-27
+# VM invoker: C:\Users\dmp12\.jdks\openjdk-25.0.1\bin\java.exe
+# VM options: -javaagent:D:\IntelliJ IDEA Community Edition 2025.2.1\lib\idea_rt.jar=2613 -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 1 s each
+# Measurement: 20 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: org.example.RTreeBenchmark.searchRadius
+# Parameters: (size = 10000)
+
+# Run progress: 66,67% complete, ETA 01:26:21
+# Fork: 1 of 1
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/C:/Users/dmp12/.m2/repository/org/openjdk/jmh/jmh-core/1.37/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 41932,033 us/op
+# Warmup Iteration   2: 24050,260 us/op
+# Warmup Iteration   3: 24066,800 us/op
+# Warmup Iteration   4: 24017,883 us/op
+# Warmup Iteration   5: 24055,719 us/op
+Iteration   1: 23947,921 us/op
+Iteration   2: 24112,095 us/op
+Iteration   3: 24086,121 us/op
+Iteration   4: 24111,288 us/op
+Iteration   5: 24039,633 us/op
+Iteration   6: 23930,650 us/op
+Iteration   7: 24078,917 us/op
+Iteration   8: 24104,771 us/op
+Iteration   9: 24084,207 us/op
+Iteration  10: 24033,500 us/op
+Iteration  11: 24755,271 us/op
+Iteration  12: 24115,398 us/op
+Iteration  13: 24097,205 us/op
+Iteration  14: 24053,655 us/op
+Iteration  15: 23985,160 us/op
+Iteration  16: 24109,850 us/op
+Iteration  17: 24095,002 us/op
+Iteration  18: 24057,774 us/op
+Iteration  19: 24021,898 us/op
+Iteration  20: 23970,248 us/op
+
+
+"Result ""org.example.RTreeBenchmark.searchRadius"":"
+  24089,528 ±(99.9%) 144,848 us/op [Average]
+  (min, avg, max) = (23930,650, 24089,528, 24755,271), stdev = 166,807
+  CI (99.9%): [23944,681, 24234,376] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 25.0.1, OpenJDK 64-Bit Server VM, 25.0.1+8-27
+# VM invoker: C:\Users\dmp12\.jdks\openjdk-25.0.1\bin\java.exe
+# VM options: -javaagent:D:\IntelliJ IDEA Community Edition 2025.2.1\lib\idea_rt.jar=2613 -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 1 s each
+# Measurement: 20 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: org.example.RTreeBenchmark.searchRadius
+# Parameters: (size = 100000)
+
+# Run progress: 75,00% complete, ETA 00:57:42
+# Fork: 1 of 1
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/C:/Users/dmp12/.m2/repository/org/openjdk/jmh/jmh-core/1.37/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 1261796,200 us/op
+# Warmup Iteration   2: 945558,650 us/op
+# Warmup Iteration   3: 947698,050 us/op
+# Warmup Iteration   4: 940024,200 us/op
+# Warmup Iteration   5: 921299,500 us/op
+Iteration   1: 949566,400 us/op
+Iteration   2: 927736,200 us/op
+Iteration   3: 932207,750 us/op
+Iteration   4: 931829,850 us/op
+Iteration   5: 934683,750 us/op
+Iteration   6: 934627,000 us/op
+Iteration   7: 937901,950 us/op
+Iteration   8: 938546,100 us/op
+Iteration   9: 933094,200 us/op
+Iteration  10: 940251,750 us/op
+Iteration  11: 943687,950 us/op
+Iteration  12: 942813,200 us/op
+Iteration  13: 941041,750 us/op
+Iteration  14: 943499,350 us/op
+Iteration  15: 946160,950 us/op
+Iteration  16: 943441,200 us/op
+Iteration  17: 934015,050 us/op
+Iteration  18: 940942,450 us/op
+Iteration  19: 923568,450 us/op
+Iteration  20: 942090,300 us/op
+
+
+"Result ""org.example.RTreeBenchmark.searchRadius"":"
+  938085,280 ±(99.9%) 5645,836 us/op [Average]
+  (min, avg, max) = (923568,450, 938085,280, 949566,400), stdev = 6501,753
+  CI (99.9%): [932439,444, 943731,116] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 25.0.1, OpenJDK 64-Bit Server VM, 25.0.1+8-27
+# VM invoker: C:\Users\dmp12\.jdks\openjdk-25.0.1\bin\java.exe
+# VM options: -javaagent:D:\IntelliJ IDEA Community Edition 2025.2.1\lib\idea_rt.jar=2613 -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 1 s each
+# Measurement: 20 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: org.example.RTreeBenchmark.searchRadius
+# Parameters: (size = 500000)
+
+# Run progress: 83,33% complete, ETA 00:34:47
+# Fork: 1 of 1
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/C:/Users/dmp12/.m2/repository/org/openjdk/jmh/jmh-core/1.37/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 29332716,500 us/op
+# Warmup Iteration   2: 32008590,600 us/op
+# Warmup Iteration   3: 34374799,000 us/op
+# Warmup Iteration   4: 34066778,400 us/op
+# Warmup Iteration   5: 32271978,700 us/op
+Iteration   1: 29981215,800 us/op
+Iteration   2: 28914976,400 us/op
+Iteration   3: 31318076,900 us/op
+Iteration   4: 34192671,300 us/op
+Iteration   5: 34063131,100 us/op
+Iteration   6: 32579443,800 us/op
+Iteration   7: 30003145,000 us/op
+Iteration   8: 28734765,900 us/op
+Iteration   9: 30311866,900 us/op
+Iteration  10: 34283246,400 us/op
+Iteration  11: 34225914,300 us/op
+Iteration  12: 32756319,900 us/op
+Iteration  13: 30665181,300 us/op
+Iteration  14: 28666600,700 us/op
+Iteration  15: 30497272,300 us/op
+Iteration  16: 33993821,000 us/op
+Iteration  17: 33933594,600 us/op
+Iteration  18: 32238696,900 us/op
+Iteration  19: 29357861,200 us/op
+Iteration  20: 29198476,400 us/op
+
+
+"Result ""org.example.RTreeBenchmark.searchRadius"":"
+  31495813,905 ±(99.9%) 1829791,417 us/op [Average]
+  (min, avg, max) = (28666600,700, 31495813,905, 34283246,400), stdev = 2107190,517
+  CI (99.9%): [29666022,488, 33325605,322] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 25.0.1, OpenJDK 64-Bit Server VM, 25.0.1+8-27
+# VM invoker: C:\Users\dmp12\.jdks\openjdk-25.0.1\bin\java.exe
+# VM options: -javaagent:D:\IntelliJ IDEA Community Edition 2025.2.1\lib\idea_rt.jar=2613 -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 1 s each
+# Measurement: 20 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: org.example.RTreeBenchmark.searchRadius
+# Parameters: (size = 1000000)
+
+# Run progress: 91,67% complete, ETA 00:17:00
+# Fork: 1 of 1
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/C:/Users/dmp12/.m2/repository/org/openjdk/jmh/jmh-core/1.37/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 166121866,700 us/op
+# Warmup Iteration   2: 175677800,700 us/op
+# Warmup Iteration   3: 174385034,300 us/op
+# Warmup Iteration   4: 167205234,500 us/op
+# Warmup Iteration   5: 171208636,600 us/op
+Iteration   1: 173206771,000 us/op
+Iteration   2: 177201001,500 us/op
+Iteration   3: 175440233,900 us/op
+Iteration   4: 170762172,200 us/op
+Iteration   5: 167910308,700 us/op
+Iteration   6: 166361645,200 us/op
+Iteration   7: 171142811,800 us/op
+Iteration   8: 175728474,900 us/op
+Iteration   9: 176887299,400 us/op
+Iteration  10: 171386008,100 us/op
+Iteration  11: 168518504,700 us/op
+Iteration  12: 170808096,200 us/op
+Iteration  13: 166718608,000 us/op
+Iteration  14: 168393861,200 us/op
+Iteration  15: 173701805,200 us/op
+Iteration  16: 178986421,900 us/op
+Iteration  17: 177931104,800 us/op
+Iteration  18: 217131422,300 us/op
+Iteration  19: 224735387,200 us/op
+Iteration  20: 213147278,700 us/op
+
+
+"Result ""org.example.RTreeBenchmark.searchRadius"":"
+  179304960,845 ±(99.9%) 15059258,464 us/op [Average]
+  (min, avg, max) = (166361645,200, 179304960,845, 224735387,200), stdev = 17342264,443
+  CI (99.9%): [164245702,381, 194364219,309] (assumes normal distribution)
+
+
+# Run complete. Total time: 04:21:09
+
+REMEMBER: The numbers below are just data. To gain reusable insights, you need to follow up on
+why the numbers are the way they are. Use profilers (see -prof, -lprof), design factorial
+experiments, perform baseline and negative tests that provide experimental control, make sure
+the benchmarking environment is safe on JVM/OS/HW level, ask for reviews from the domain experts.
+Do not assume the numbers tell you what you want them to tell.
+
+NOTE: Current JVM experimentally supports Compiler Blackholes, and they are in use. Please exercise
+extra caution when trusting the results, look into the generated code to check the benchmark still
+works, and factor in a small probability of new VM bugs. Additionally, while comparisons between
+different JVMs are already problematic, the performance difference caused by different Blackhole
+modes can be very significant. Please make sure you use the consistent Blackhole mode for comparisons.
+
+Benchmark                      (size)  Mode  Cnt          Score          Error  Units
+RTreeBenchmark.insertAll        10000  avgt   20      23515,659 ±      749,303  us/op
+RTreeBenchmark.insertAll       100000  avgt   20     942075,510 ±     8988,255  us/op
+RTreeBenchmark.insertAll       500000  avgt   20   30343136,280 ±  1071689,960  us/op
+RTreeBenchmark.insertAll      1000000  avgt   20  173534037,925 ±  3847482,192  us/op
+RTreeBenchmark.searchNearest    10000  avgt   20      34229,540 ±      443,716  us/op
+RTreeBenchmark.searchNearest   100000  avgt   20     969289,302 ±     8133,950  us/op
+RTreeBenchmark.searchNearest   500000  avgt   20   31658165,165 ±  1887536,156  us/op
+RTreeBenchmark.searchNearest  1000000  avgt   20  174132780,415 ±  3701001,201  us/op
+RTreeBenchmark.searchRadius     10000  avgt   20      24089,528 ±      144,848  us/op
+RTreeBenchmark.searchRadius    100000  avgt   20     938085,280 ±     5645,836  us/op
+RTreeBenchmark.searchRadius    500000  avgt   20   31495813,905 ±  1829791,417  us/op
+RTreeBenchmark.searchRadius   1000000  avgt   20  179304960,845 ± 15059258,464  us/op
+
+Benchmark result is saved to target\jmh-results\RTreeBenchmark-20260325-232413.csv

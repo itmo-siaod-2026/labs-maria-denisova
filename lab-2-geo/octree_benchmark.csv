@@ -1,0 +1,653 @@
+# JMH version: 1.37
+# VM version: JDK 25.0.1, OpenJDK 64-Bit Server VM, 25.0.1+8-27
+# VM invoker: C:\Users\dmp12\.jdks\openjdk-25.0.1\bin\java.exe
+# VM options: -javaagent:D:\IntelliJ IDEA Community Edition 2025.2.1\lib\idea_rt.jar=5934 -agentpath:C:\Users\dmp12\AppData\Local\Temp\idea_libasyncProfiler_dll_temp_folder\libasyncProfiler.dll=start,jfr,event=wall,interval=10ms,jfrsync=profile,cstack=no,file=C:\Users\dmp12\IdeaSnapshots\OctoTreeBenchmark_2026_03_26_224633.jfr,dbghelppath=C:\Users\dmp12\AppData\Local\Temp\idea_dbghelp_dll_temp_folder\dbghelp.dll,log=C:\Users\dmp12\AppData\Local\Temp\OctoTreeBenchmark_2026_03_26_224633.jfr.log.txt,logLevel=DEBUG -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 1 s each
+# Measurement: 20 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: org.example.OctoTreeBenchmark.insertAll
+# Parameters: (size = 10000)
+
+# Run progress: 0,00% complete, ETA 00:05:00
+# Fork: 1 of 1
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/C:/Users/dmp12/.m2/repository/org/openjdk/jmh/jmh-core/1.37/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 1235,395 us/op
+# Warmup Iteration   2: 1087,204 us/op
+# Warmup Iteration   3: 1055,637 us/op
+# Warmup Iteration   4: 1057,074 us/op
+# Warmup Iteration   5: 1031,930 us/op
+Iteration   1: 984,157 us/op
+Iteration   2: 1021,550 us/op
+Iteration   3: 1018,504 us/op
+Iteration   4: 991,783 us/op
+Iteration   5: 1003,909 us/op
+Iteration   6: 990,064 us/op
+Iteration   7: 988,813 us/op
+Iteration   8: 987,957 us/op
+Iteration   9: 996,410 us/op
+Iteration  10: 994,490 us/op
+Iteration  11: 990,343 us/op
+Iteration  12: 982,008 us/op
+Iteration  13: 991,675 us/op
+Iteration  14: 989,545 us/op
+Iteration  15: 989,514 us/op
+Iteration  16: 990,984 us/op
+Iteration  17: 992,509 us/op
+Iteration  18: 984,976 us/op
+Iteration  19: 1001,084 us/op
+Iteration  20: 989,107 us/op
+
+
+Result "org.example.OctoTreeBenchmark.insertAll":
+  993,969 ±(99.9%) 8,940 us/op [Average]
+  (min, avg, max) = (982,008, 993,969, 1021,550), stdev = 10,295
+  CI (99.9%): [985,029, 1002,909] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 25.0.1, OpenJDK 64-Bit Server VM, 25.0.1+8-27
+# VM invoker: C:\Users\dmp12\.jdks\openjdk-25.0.1\bin\java.exe
+# VM options: -javaagent:D:\IntelliJ IDEA Community Edition 2025.2.1\lib\idea_rt.jar=5934 -agentpath:C:\Users\dmp12\AppData\Local\Temp\idea_libasyncProfiler_dll_temp_folder\libasyncProfiler.dll=start,jfr,event=wall,interval=10ms,jfrsync=profile,cstack=no,file=C:\Users\dmp12\IdeaSnapshots\OctoTreeBenchmark_2026_03_26_224633.jfr,dbghelppath=C:\Users\dmp12\AppData\Local\Temp\idea_dbghelp_dll_temp_folder\dbghelp.dll,log=C:\Users\dmp12\AppData\Local\Temp\OctoTreeBenchmark_2026_03_26_224633.jfr.log.txt,logLevel=DEBUG -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 1 s each
+# Measurement: 20 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: org.example.OctoTreeBenchmark.insertAll
+# Parameters: (size = 100000)
+
+# Run progress: 8,33% complete, ETA 00:04:47
+# Fork: 1 of 1
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/C:/Users/dmp12/.m2/repository/org/openjdk/jmh/jmh-core/1.37/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 21046,690 us/op
+# Warmup Iteration   2: 20209,040 us/op
+# Warmup Iteration   3: 20024,076 us/op
+# Warmup Iteration   4: 19853,004 us/op
+# Warmup Iteration   5: 19711,408 us/op
+Iteration   1: 19672,635 us/op
+Iteration   2: 19883,267 us/op
+Iteration   3: 19680,294 us/op
+Iteration   4: 20381,142 us/op
+Iteration   5: 19741,208 us/op
+Iteration   6: 19860,671 us/op
+Iteration   7: 20116,096 us/op
+Iteration   8: 19993,394 us/op
+Iteration   9: 20005,498 us/op
+Iteration  10: 19844,461 us/op
+Iteration  11: 20915,881 us/op
+Iteration  12: 19730,898 us/op
+Iteration  13: 19865,378 us/op
+Iteration  14: 19958,286 us/op
+Iteration  15: 20069,814 us/op
+Iteration  16: 20022,176 us/op
+Iteration  17: 19720,565 us/op
+Iteration  18: 19771,139 us/op
+Iteration  19: 19904,933 us/op
+Iteration  20: 19953,814 us/op
+
+
+Result "org.example.OctoTreeBenchmark.insertAll":
+  19954,578 ±(99.9%) 246,355 us/op [Average]
+  (min, avg, max) = (19672,635, 19954,578, 20915,881), stdev = 283,703
+  CI (99.9%): [19708,223, 20200,932] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 25.0.1, OpenJDK 64-Bit Server VM, 25.0.1+8-27
+# VM invoker: C:\Users\dmp12\.jdks\openjdk-25.0.1\bin\java.exe
+# VM options: -javaagent:D:\IntelliJ IDEA Community Edition 2025.2.1\lib\idea_rt.jar=5934 -agentpath:C:\Users\dmp12\AppData\Local\Temp\idea_libasyncProfiler_dll_temp_folder\libasyncProfiler.dll=start,jfr,event=wall,interval=10ms,jfrsync=profile,cstack=no,file=C:\Users\dmp12\IdeaSnapshots\OctoTreeBenchmark_2026_03_26_224633.jfr,dbghelppath=C:\Users\dmp12\AppData\Local\Temp\idea_dbghelp_dll_temp_folder\dbghelp.dll,log=C:\Users\dmp12\AppData\Local\Temp\OctoTreeBenchmark_2026_03_26_224633.jfr.log.txt,logLevel=DEBUG -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 1 s each
+# Measurement: 20 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: org.example.OctoTreeBenchmark.insertAll
+# Parameters: (size = 500000)
+
+# Run progress: 16,67% complete, ETA 00:04:21
+# Fork: 1 of 1
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/C:/Users/dmp12/.m2/repository/org/openjdk/jmh/jmh-core/1.37/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 201248,680 us/op
+# Warmup Iteration   2: 206658,900 us/op
+# Warmup Iteration   3: 196583,767 us/op
+# Warmup Iteration   4: 192868,683 us/op
+# Warmup Iteration   5: 188827,183 us/op
+Iteration   1: 188390,850 us/op
+Iteration   2: 187496,450 us/op
+Iteration   3: 188620,617 us/op
+Iteration   4: 186658,367 us/op
+Iteration   5: 187521,183 us/op
+Iteration   6: 189275,283 us/op
+Iteration   7: 187350,350 us/op
+Iteration   8: 186632,550 us/op
+Iteration   9: 190254,417 us/op
+Iteration  10: 187335,617 us/op
+Iteration  11: 188576,183 us/op
+Iteration  12: 189314,683 us/op
+Iteration  13: 187187,067 us/op
+Iteration  14: 187466,033 us/op
+Iteration  15: 187863,550 us/op
+Iteration  16: 189637,817 us/op
+Iteration  17: 186219,650 us/op
+Iteration  18: 186870,433 us/op
+Iteration  19: 186962,817 us/op
+Iteration  20: 187470,417 us/op
+
+
+Result "org.example.OctoTreeBenchmark.insertAll":
+  187855,217 ±(99.9%) 962,699 us/op [Average]
+  (min, avg, max) = (186219,650, 187855,217, 190254,417), stdev = 1108,645
+  CI (99.9%): [186892,518, 188817,916] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 25.0.1, OpenJDK 64-Bit Server VM, 25.0.1+8-27
+# VM invoker: C:\Users\dmp12\.jdks\openjdk-25.0.1\bin\java.exe
+# VM options: -javaagent:D:\IntelliJ IDEA Community Edition 2025.2.1\lib\idea_rt.jar=5934 -agentpath:C:\Users\dmp12\AppData\Local\Temp\idea_libasyncProfiler_dll_temp_folder\libasyncProfiler.dll=start,jfr,event=wall,interval=10ms,jfrsync=profile,cstack=no,file=C:\Users\dmp12\IdeaSnapshots\OctoTreeBenchmark_2026_03_26_224633.jfr,dbghelppath=C:\Users\dmp12\AppData\Local\Temp\idea_dbghelp_dll_temp_folder\dbghelp.dll,log=C:\Users\dmp12\AppData\Local\Temp\OctoTreeBenchmark_2026_03_26_224633.jfr.log.txt,logLevel=DEBUG -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 1 s each
+# Measurement: 20 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: org.example.OctoTreeBenchmark.insertAll
+# Parameters: (size = 1000000)
+
+# Run progress: 25,00% complete, ETA 00:04:04
+# Fork: 1 of 1
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/C:/Users/dmp12/.m2/repository/org/openjdk/jmh/jmh-core/1.37/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 574682,650 us/op
+# Warmup Iteration   2: 528761,800 us/op
+# Warmup Iteration   3: 506701,450 us/op
+# Warmup Iteration   4: 519397,350 us/op
+# Warmup Iteration   5: 504172,300 us/op
+Iteration   1: 509044,750 us/op
+Iteration   2: 510462,833 us/op
+Iteration   3: 496575,300 us/op
+Iteration   4: 496292,767 us/op
+Iteration   5: 502724,650 us/op
+Iteration   6: 511786,700 us/op
+Iteration   7: 498761,100 us/op
+Iteration   8: 496552,767 us/op
+Iteration   9: 502342,900 us/op
+Iteration  10: 495518,667 us/op
+Iteration  11: 510433,400 us/op
+Iteration  12: 526694,950 us/op
+Iteration  13: 500628,100 us/op
+Iteration  14: 495096,267 us/op
+Iteration  15: 504447,150 us/op
+Iteration  16: 497306,667 us/op
+Iteration  17: 506412,600 us/op
+Iteration  18: 498385,133 us/op
+Iteration  19: 499602,500 us/op
+Iteration  20: 502197,850 us/op
+
+
+Result "org.example.OctoTreeBenchmark.insertAll":
+  503063,353 ±(99.9%) 6714,664 us/op [Average]
+  (min, avg, max) = (495096,267, 503063,353, 526694,950), stdev = 7732,617
+  CI (99.9%): [496348,688, 509778,017] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 25.0.1, OpenJDK 64-Bit Server VM, 25.0.1+8-27
+# VM invoker: C:\Users\dmp12\.jdks\openjdk-25.0.1\bin\java.exe
+# VM options: -javaagent:D:\IntelliJ IDEA Community Edition 2025.2.1\lib\idea_rt.jar=5934 -agentpath:C:\Users\dmp12\AppData\Local\Temp\idea_libasyncProfiler_dll_temp_folder\libasyncProfiler.dll=start,jfr,event=wall,interval=10ms,jfrsync=profile,cstack=no,file=C:\Users\dmp12\IdeaSnapshots\OctoTreeBenchmark_2026_03_26_224633.jfr,dbghelppath=C:\Users\dmp12\AppData\Local\Temp\idea_dbghelp_dll_temp_folder\dbghelp.dll,log=C:\Users\dmp12\AppData\Local\Temp\OctoTreeBenchmark_2026_03_26_224633.jfr.log.txt,logLevel=DEBUG -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 1 s each
+# Measurement: 20 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: org.example.OctoTreeBenchmark.searchNearest
+# Parameters: (size = 10000)
+
+# Run progress: 33,33% complete, ETA 00:03:47
+# Fork: 1 of 1
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/C:/Users/dmp12/.m2/repository/org/openjdk/jmh/jmh-core/1.37/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 5043,138 us/op
+# Warmup Iteration   2: 3526,905 us/op
+# Warmup Iteration   3: 3351,902 us/op
+# Warmup Iteration   4: 3366,127 us/op
+# Warmup Iteration   5: 3385,645 us/op
+Iteration   1: 3349,108 us/op
+Iteration   2: 3337,493 us/op
+Iteration   3: 3365,407 us/op
+Iteration   4: 3329,500 us/op
+Iteration   5: 3322,800 us/op
+Iteration   6: 3351,109 us/op
+Iteration   7: 3296,620 us/op
+Iteration   8: 3338,667 us/op
+Iteration   9: 3316,596 us/op
+Iteration  10: 3319,655 us/op
+Iteration  11: 3331,558 us/op
+Iteration  12: 3318,629 us/op
+Iteration  13: 3310,303 us/op
+Iteration  14: 3302,378 us/op
+Iteration  15: 3326,961 us/op
+Iteration  16: 3323,555 us/op
+Iteration  17: 3326,936 us/op
+Iteration  18: 3322,155 us/op
+Iteration  19: 3315,558 us/op
+Iteration  20: 3339,812 us/op
+
+
+Result "org.example.OctoTreeBenchmark.searchNearest":
+  3327,240 ±(99.9%) 14,373 us/op [Average]
+  (min, avg, max) = (3296,620, 3327,240, 3365,407), stdev = 16,552
+  CI (99.9%): [3312,867, 3341,613] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 25.0.1, OpenJDK 64-Bit Server VM, 25.0.1+8-27
+# VM invoker: C:\Users\dmp12\.jdks\openjdk-25.0.1\bin\java.exe
+# VM options: -javaagent:D:\IntelliJ IDEA Community Edition 2025.2.1\lib\idea_rt.jar=5934 -agentpath:C:\Users\dmp12\AppData\Local\Temp\idea_libasyncProfiler_dll_temp_folder\libasyncProfiler.dll=start,jfr,event=wall,interval=10ms,jfrsync=profile,cstack=no,file=C:\Users\dmp12\IdeaSnapshots\OctoTreeBenchmark_2026_03_26_224633.jfr,dbghelppath=C:\Users\dmp12\AppData\Local\Temp\idea_dbghelp_dll_temp_folder\dbghelp.dll,log=C:\Users\dmp12\AppData\Local\Temp\OctoTreeBenchmark_2026_03_26_224633.jfr.log.txt,logLevel=DEBUG -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 1 s each
+# Measurement: 20 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: org.example.OctoTreeBenchmark.searchNearest
+# Parameters: (size = 100000)
+
+# Run progress: 41,67% complete, ETA 00:03:16
+# Fork: 1 of 1
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/C:/Users/dmp12/.m2/repository/org/openjdk/jmh/jmh-core/1.37/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 33190,023 us/op
+# Warmup Iteration   2: 27882,686 us/op
+# Warmup Iteration   3: 27718,730 us/op
+# Warmup Iteration   4: 27563,232 us/op
+# Warmup Iteration   5: 27661,457 us/op
+Iteration   1: 27645,370 us/op
+Iteration   2: 27705,741 us/op
+Iteration   3: 27576,949 us/op
+Iteration   4: 27463,411 us/op
+Iteration   5: 27452,797 us/op
+Iteration   6: 27678,365 us/op
+Iteration   7: 27616,538 us/op
+Iteration   8: 27529,949 us/op
+Iteration   9: 27844,161 us/op
+Iteration  10: 27593,657 us/op
+Iteration  11: 27602,995 us/op
+Iteration  12: 27604,008 us/op
+Iteration  13: 27534,149 us/op
+Iteration  14: 27484,957 us/op
+Iteration  15: 27570,338 us/op
+Iteration  16: 27480,630 us/op
+Iteration  17: 28981,714 us/op
+Iteration  18: 27418,643 us/op
+Iteration  19: 27524,357 us/op
+Iteration  20: 27613,722 us/op
+
+
+Result "org.example.OctoTreeBenchmark.searchNearest":
+  27646,122 ±(99.9%) 286,148 us/op [Average]
+  (min, avg, max) = (27418,643, 27646,122, 28981,714), stdev = 329,528
+  CI (99.9%): [27359,975, 27932,270] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 25.0.1, OpenJDK 64-Bit Server VM, 25.0.1+8-27
+# VM invoker: C:\Users\dmp12\.jdks\openjdk-25.0.1\bin\java.exe
+# VM options: -javaagent:D:\IntelliJ IDEA Community Edition 2025.2.1\lib\idea_rt.jar=5934 -agentpath:C:\Users\dmp12\AppData\Local\Temp\idea_libasyncProfiler_dll_temp_folder\libasyncProfiler.dll=start,jfr,event=wall,interval=10ms,jfrsync=profile,cstack=no,file=C:\Users\dmp12\IdeaSnapshots\OctoTreeBenchmark_2026_03_26_224633.jfr,dbghelppath=C:\Users\dmp12\AppData\Local\Temp\idea_dbghelp_dll_temp_folder\dbghelp.dll,log=C:\Users\dmp12\AppData\Local\Temp\OctoTreeBenchmark_2026_03_26_224633.jfr.log.txt,logLevel=DEBUG -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 1 s each
+# Measurement: 20 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: org.example.OctoTreeBenchmark.searchNearest
+# Parameters: (size = 500000)
+
+# Run progress: 50,00% complete, ETA 00:02:46
+# Fork: 1 of 1
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/C:/Users/dmp12/.m2/repository/org/openjdk/jmh/jmh-core/1.37/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 229416,000 us/op
+# Warmup Iteration   2: 200366,420 us/op
+# Warmup Iteration   3: 206203,700 us/op
+# Warmup Iteration   4: 199793,400 us/op
+# Warmup Iteration   5: 197004,583 us/op
+Iteration   1: 202242,980 us/op
+Iteration   2: 193192,933 us/op
+Iteration   3: 192491,717 us/op
+Iteration   4: 207355,240 us/op
+Iteration   5: 195184,367 us/op
+Iteration   6: 194825,033 us/op
+Iteration   7: 192299,883 us/op
+Iteration   8: 191804,100 us/op
+Iteration   9: 191303,417 us/op
+Iteration  10: 193960,633 us/op
+Iteration  11: 192637,233 us/op
+Iteration  12: 192827,583 us/op
+Iteration  13: 191700,017 us/op
+Iteration  14: 194885,450 us/op
+Iteration  15: 192011,517 us/op
+Iteration  16: 191880,083 us/op
+Iteration  17: 192735,000 us/op
+Iteration  18: 193803,383 us/op
+Iteration  19: 190079,800 us/op
+Iteration  20: 191452,300 us/op
+
+
+Result "org.example.OctoTreeBenchmark.searchNearest":
+  193933,634 ±(99.9%) 3493,178 us/op [Average]
+  (min, avg, max) = (190079,800, 193933,634, 207355,240), stdev = 4022,749
+  CI (99.9%): [190440,456, 197426,811] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 25.0.1, OpenJDK 64-Bit Server VM, 25.0.1+8-27
+# VM invoker: C:\Users\dmp12\.jdks\openjdk-25.0.1\bin\java.exe
+# VM options: -javaagent:D:\IntelliJ IDEA Community Edition 2025.2.1\lib\idea_rt.jar=5934 -agentpath:C:\Users\dmp12\AppData\Local\Temp\idea_libasyncProfiler_dll_temp_folder\libasyncProfiler.dll=start,jfr,event=wall,interval=10ms,jfrsync=profile,cstack=no,file=C:\Users\dmp12\IdeaSnapshots\OctoTreeBenchmark_2026_03_26_224633.jfr,dbghelppath=C:\Users\dmp12\AppData\Local\Temp\idea_dbghelp_dll_temp_folder\dbghelp.dll,log=C:\Users\dmp12\AppData\Local\Temp\OctoTreeBenchmark_2026_03_26_224633.jfr.log.txt,logLevel=DEBUG -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 1 s each
+# Measurement: 20 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: org.example.OctoTreeBenchmark.searchNearest
+# Parameters: (size = 1000000)
+
+# Run progress: 58,33% complete, ETA 00:02:19
+# Fork: 1 of 1
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/C:/Users/dmp12/.m2/repository/org/openjdk/jmh/jmh-core/1.37/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 626610,300 us/op
+# Warmup Iteration   2: 535115,900 us/op
+# Warmup Iteration   3: 507619,100 us/op
+# Warmup Iteration   4: 522447,150 us/op
+# Warmup Iteration   5: 512500,950 us/op
+Iteration   1: 505753,900 us/op
+Iteration   2: 547972,800 us/op
+Iteration   3: 509165,250 us/op
+Iteration   4: 522815,400 us/op
+Iteration   5: 506762,100 us/op
+Iteration   6: 560485,800 us/op
+Iteration   7: 537233,550 us/op
+Iteration   8: 527980,300 us/op
+Iteration   9: 503055,133 us/op
+Iteration  10: 515653,767 us/op
+Iteration  11: 508961,300 us/op
+Iteration  12: 504191,950 us/op
+Iteration  13: 503622,950 us/op
+Iteration  14: 495658,633 us/op
+Iteration  15: 516558,350 us/op
+Iteration  16: 500687,267 us/op
+Iteration  17: 497555,033 us/op
+Iteration  18: 535859,900 us/op
+Iteration  19: 497684,467 us/op
+Iteration  20: 515747,350 us/op
+
+
+Result "org.example.OctoTreeBenchmark.searchNearest":
+  515670,260 ±(99.9%) 15566,189 us/op [Average]
+  (min, avg, max) = (495658,633, 515670,260, 560485,800), stdev = 17926,047
+  CI (99.9%): [500104,071, 531236,449] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 25.0.1, OpenJDK 64-Bit Server VM, 25.0.1+8-27
+# VM invoker: C:\Users\dmp12\.jdks\openjdk-25.0.1\bin\java.exe
+# VM options: -javaagent:D:\IntelliJ IDEA Community Edition 2025.2.1\lib\idea_rt.jar=5934 -agentpath:C:\Users\dmp12\AppData\Local\Temp\idea_libasyncProfiler_dll_temp_folder\libasyncProfiler.dll=start,jfr,event=wall,interval=10ms,jfrsync=profile,cstack=no,file=C:\Users\dmp12\IdeaSnapshots\OctoTreeBenchmark_2026_03_26_224633.jfr,dbghelppath=C:\Users\dmp12\AppData\Local\Temp\idea_dbghelp_dll_temp_folder\dbghelp.dll,log=C:\Users\dmp12\AppData\Local\Temp\OctoTreeBenchmark_2026_03_26_224633.jfr.log.txt,logLevel=DEBUG -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 1 s each
+# Measurement: 20 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: org.example.OctoTreeBenchmark.searchRadius
+# Parameters: (size = 10000)
+
+# Run progress: 66,67% complete, ETA 00:01:53
+# Fork: 1 of 1
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/C:/Users/dmp12/.m2/repository/org/openjdk/jmh/jmh-core/1.37/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 1656,022 us/op
+# Warmup Iteration   2: 1571,143 us/op
+# Warmup Iteration   3: 1552,847 us/op
+# Warmup Iteration   4: 1553,317 us/op
+# Warmup Iteration   5: 1546,554 us/op
+Iteration   1: 1528,034 us/op
+Iteration   2: 1532,527 us/op
+Iteration   3: 1523,347 us/op
+Iteration   4: 1523,892 us/op
+Iteration   5: 1529,000 us/op
+Iteration   6: 1551,823 us/op
+Iteration   7: 1605,372 us/op
+Iteration   8: 1521,533 us/op
+Iteration   9: 1519,730 us/op
+Iteration  10: 1522,385 us/op
+Iteration  11: 1526,831 us/op
+Iteration  12: 1523,991 us/op
+Iteration  13: 1522,991 us/op
+Iteration  14: 1527,258 us/op
+Iteration  15: 1526,178 us/op
+Iteration  16: 1521,778 us/op
+Iteration  17: 1522,665 us/op
+Iteration  18: 1526,271 us/op
+Iteration  19: 1559,336 us/op
+Iteration  20: 1715,367 us/op
+
+
+Result "org.example.OctoTreeBenchmark.searchRadius":
+  1541,515 ±(99.9%) 39,496 us/op [Average]
+  (min, avg, max) = (1519,730, 1541,515, 1715,367), stdev = 45,484
+  CI (99.9%): [1502,019, 1581,012] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 25.0.1, OpenJDK 64-Bit Server VM, 25.0.1+8-27
+# VM invoker: C:\Users\dmp12\.jdks\openjdk-25.0.1\bin\java.exe
+# VM options: -javaagent:D:\IntelliJ IDEA Community Edition 2025.2.1\lib\idea_rt.jar=5934 -agentpath:C:\Users\dmp12\AppData\Local\Temp\idea_libasyncProfiler_dll_temp_folder\libasyncProfiler.dll=start,jfr,event=wall,interval=10ms,jfrsync=profile,cstack=no,file=C:\Users\dmp12\IdeaSnapshots\OctoTreeBenchmark_2026_03_26_224633.jfr,dbghelppath=C:\Users\dmp12\AppData\Local\Temp\idea_dbghelp_dll_temp_folder\dbghelp.dll,log=C:\Users\dmp12\AppData\Local\Temp\OctoTreeBenchmark_2026_03_26_224633.jfr.log.txt,logLevel=DEBUG -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 1 s each
+# Measurement: 20 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: org.example.OctoTreeBenchmark.searchRadius
+# Parameters: (size = 100000)
+
+# Run progress: 75,00% complete, ETA 00:01:24
+# Fork: 1 of 1
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/C:/Users/dmp12/.m2/repository/org/openjdk/jmh/jmh-core/1.37/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 28882,449 us/op
+# Warmup Iteration   2: 27103,359 us/op
+# Warmup Iteration   3: 26997,345 us/op
+# Warmup Iteration   4: 30007,394 us/op
+# Warmup Iteration   5: 27493,154 us/op
+Iteration   1: 31192,606 us/op
+Iteration   2: 28889,180 us/op
+Iteration   3: 27874,703 us/op
+Iteration   4: 26897,158 us/op
+Iteration   5: 27018,829 us/op
+Iteration   6: 26855,255 us/op
+Iteration   7: 26844,174 us/op
+Iteration   8: 26962,232 us/op
+Iteration   9: 26937,905 us/op
+Iteration  10: 26798,721 us/op
+Iteration  11: 26810,829 us/op
+Iteration  12: 26942,882 us/op
+Iteration  13: 26903,279 us/op
+Iteration  14: 26753,384 us/op
+Iteration  15: 27892,875 us/op
+Iteration  16: 26892,429 us/op
+Iteration  17: 27061,627 us/op
+Iteration  18: 26842,382 us/op
+Iteration  19: 26808,539 us/op
+Iteration  20: 26876,953 us/op
+
+
+Result "org.example.OctoTreeBenchmark.searchRadius":
+  27302,797 ±(99.9%) 916,793 us/op [Average]
+  (min, avg, max) = (26753,384, 27302,797, 31192,606), stdev = 1055,780
+  CI (99.9%): [26386,004, 28219,590] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 25.0.1, OpenJDK 64-Bit Server VM, 25.0.1+8-27
+# VM invoker: C:\Users\dmp12\.jdks\openjdk-25.0.1\bin\java.exe
+# VM options: -javaagent:D:\IntelliJ IDEA Community Edition 2025.2.1\lib\idea_rt.jar=5934 -agentpath:C:\Users\dmp12\AppData\Local\Temp\idea_libasyncProfiler_dll_temp_folder\libasyncProfiler.dll=start,jfr,event=wall,interval=10ms,jfrsync=profile,cstack=no,file=C:\Users\dmp12\IdeaSnapshots\OctoTreeBenchmark_2026_03_26_224633.jfr,dbghelppath=C:\Users\dmp12\AppData\Local\Temp\idea_dbghelp_dll_temp_folder\dbghelp.dll,log=C:\Users\dmp12\AppData\Local\Temp\OctoTreeBenchmark_2026_03_26_224633.jfr.log.txt,logLevel=DEBUG -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 1 s each
+# Measurement: 20 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: org.example.OctoTreeBenchmark.searchRadius
+# Parameters: (size = 500000)
+
+# Run progress: 83,33% complete, ETA 00:00:55
+# Fork: 1 of 1
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/C:/Users/dmp12/.m2/repository/org/openjdk/jmh/jmh-core/1.37/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 221606,320 us/op
+# Warmup Iteration   2: 209873,520 us/op
+# Warmup Iteration   3: 219855,180 us/op
+# Warmup Iteration   4: 214450,240 us/op
+# Warmup Iteration   5: 212771,820 us/op
+Iteration   1: 208940,020 us/op
+Iteration   2: 208563,300 us/op
+Iteration   3: 210115,020 us/op
+Iteration   4: 210260,600 us/op
+Iteration   5: 209090,360 us/op
+Iteration   6: 209622,240 us/op
+Iteration   7: 209912,840 us/op
+Iteration   8: 210826,680 us/op
+Iteration   9: 208810,560 us/op
+Iteration  10: 208392,040 us/op
+Iteration  11: 209243,700 us/op
+Iteration  12: 209392,000 us/op
+Iteration  13: 209130,280 us/op
+Iteration  14: 218942,000 us/op
+Iteration  15: 219912,360 us/op
+Iteration  16: 209117,380 us/op
+Iteration  17: 209778,340 us/op
+Iteration  18: 209258,880 us/op
+Iteration  19: 208563,700 us/op
+Iteration  20: 211912,000 us/op
+
+
+Result "org.example.OctoTreeBenchmark.searchRadius":
+  210489,215 ±(99.9%) 2754,295 us/op [Average]
+  (min, avg, max) = (208392,040, 210489,215, 219912,360), stdev = 3171,850
+  CI (99.9%): [207734,920, 213243,510] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 25.0.1, OpenJDK 64-Bit Server VM, 25.0.1+8-27
+# VM invoker: C:\Users\dmp12\.jdks\openjdk-25.0.1\bin\java.exe
+# VM options: -javaagent:D:\IntelliJ IDEA Community Edition 2025.2.1\lib\idea_rt.jar=5934 -agentpath:C:\Users\dmp12\AppData\Local\Temp\idea_libasyncProfiler_dll_temp_folder\libasyncProfiler.dll=start,jfr,event=wall,interval=10ms,jfrsync=profile,cstack=no,file=C:\Users\dmp12\IdeaSnapshots\OctoTreeBenchmark_2026_03_26_224633.jfr,dbghelppath=C:\Users\dmp12\AppData\Local\Temp\idea_dbghelp_dll_temp_folder\dbghelp.dll,log=C:\Users\dmp12\AppData\Local\Temp\OctoTreeBenchmark_2026_03_26_224633.jfr.log.txt,logLevel=DEBUG -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 1 s each
+# Measurement: 20 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: org.example.OctoTreeBenchmark.searchRadius
+# Parameters: (size = 1000000)
+
+# Run progress: 91,67% complete, ETA 00:00:27
+# Fork: 1 of 1
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/C:/Users/dmp12/.m2/repository/org/openjdk/jmh/jmh-core/1.37/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 612266,050 us/op
+# Warmup Iteration   2: 555984,700 us/op
+# Warmup Iteration   3: 539096,550 us/op
+# Warmup Iteration   4: 557859,800 us/op
+# Warmup Iteration   5: 548267,650 us/op
+Iteration   1: 552720,900 us/op
+Iteration   2: 559704,700 us/op
+Iteration   3: 540319,350 us/op
+Iteration   4: 552631,200 us/op
+Iteration   5: 537607,250 us/op
+Iteration   6: 578593,400 us/op
+Iteration   7: 545710,400 us/op
+Iteration   8: 545896,200 us/op
+Iteration   9: 536965,400 us/op
+Iteration  10: 542203,900 us/op
+Iteration  11: 551778,650 us/op
+Iteration  12: 531269,650 us/op
+Iteration  13: 536909,700 us/op
+Iteration  14: 552168,500 us/op
+Iteration  15: 530065,200 us/op
+Iteration  16: 543871,850 us/op
+Iteration  17: 549775,000 us/op
+Iteration  18: 530757,600 us/op
+Iteration  19: 535625,300 us/op
+Iteration  20: 544897,400 us/op
+
+
+Result "org.example.OctoTreeBenchmark.searchRadius":
+  544973,578 ±(99.9%) 9964,702 us/op [Average]
+  (min, avg, max) = (530065,200, 544973,578, 578593,400), stdev = 11475,366
+  CI (99.9%): [535008,875, 554938,280] (assumes normal distribution)
+
+
+# Run complete. Total time: 00:05:34
+
+REMEMBER: The numbers below are just data. To gain reusable insights, you need to follow up on
+why the numbers are the way they are. Use profilers (see -prof, -lprof), design factorial
+experiments, perform baseline and negative tests that provide experimental control, make sure
+the benchmarking environment is safe on JVM/OS/HW level, ask for reviews from the domain experts.
+Do not assume the numbers tell you what you want them to tell.
+
+NOTE: Current JVM experimentally supports Compiler Blackholes, and they are in use. Please exercise
+extra caution when trusting the results, look into the generated code to check the benchmark still
+works, and factor in a small probability of new VM bugs. Additionally, while comparisons between
+different JVMs are already problematic, the performance difference caused by different Blackhole
+modes can be very significant. Please make sure you use the consistent Blackhole mode for comparisons.
+
+Benchmark                         (size)  Mode  Cnt       Score       Error  Units
+OctoTreeBenchmark.insertAll        10000  avgt   20     993,969 ±     8,940  us/op
+OctoTreeBenchmark.insertAll       100000  avgt   20   19954,578 ±   246,355  us/op
+OctoTreeBenchmark.insertAll       500000  avgt   20  187855,217 ±   962,699  us/op
+OctoTreeBenchmark.insertAll      1000000  avgt   20  503063,353 ±  6714,664  us/op
+OctoTreeBenchmark.searchNearest    10000  avgt   20    3327,240 ±    14,373  us/op
+OctoTreeBenchmark.searchNearest   100000  avgt   20   27646,122 ±   286,148  us/op
+OctoTreeBenchmark.searchNearest   500000  avgt   20  193933,634 ±  3493,178  us/op
+OctoTreeBenchmark.searchNearest  1000000  avgt   20  515670,260 ± 15566,189  us/op
+OctoTreeBenchmark.searchRadius     10000  avgt   20    1541,515 ±    39,496  us/op
+OctoTreeBenchmark.searchRadius    100000  avgt   20   27302,797 ±   916,793  us/op
+OctoTreeBenchmark.searchRadius    500000  avgt   20  210489,215 ±  2754,295  us/op
+OctoTreeBenchmark.searchRadius   1000000  avgt   20  544973,578 ±  9964,702  us/op
+
+Benchmark result is saved to target\jmh-results\OctoTreeBenchmark-20260326-224633.csv
