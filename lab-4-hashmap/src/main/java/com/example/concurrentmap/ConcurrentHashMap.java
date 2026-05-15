@@ -20,8 +20,11 @@ import java.util.function.BiFunction;
  */
 public class ConcurrentHashMap<K, V> {
 
+    /** Маска для выбора сегмента: {@code (hash >>> segmentShift) & segmentMask}. */
     private final int segmentMask;
+    /** Сдвиг старших битов хэша — равномерное распределение ключей по сегментам. */
     private final int segmentShift;
+    /** Массив сегментов; каждый сегмент — отдельная таблица корзин со своей блокировкой. */
     private final Segment<K, V>[] segments;
 
     private static final int DEFAULT_CONCURRENCY_LEVEL = 16;
@@ -32,6 +35,9 @@ public class ConcurrentHashMap<K, V> {
         this(DEFAULT_CONCURRENCY_LEVEL);
     }
 
+    /**
+     * @param concurrencyLevel желаемое число сегментов (округляется вверх до степени двойки)
+     */
     @SuppressWarnings("unchecked")
     public ConcurrentHashMap(int concurrencyLevel) {
         int ssize = 1;
@@ -46,8 +52,10 @@ public class ConcurrentHashMap<K, V> {
         }
     }
 
+    /** Узел цепочки коллизий в одной корзине. */
     static final class HashEntry<K, V> {
         final K key;
+        /** Кэш {@code key.hashCode()} после перемешивания — сравнение без повторного hashCode. */
         final int hash;
         volatile V value;
         volatile HashEntry<K, V> next;
@@ -60,9 +68,13 @@ public class ConcurrentHashMap<K, V> {
         }
     }
 
+    /** Один сегмент карты: корзины, счётчик элементов и блокировка на запись. */
     static final class Segment<K, V> extends ReentrantLock {
+        /** Таблица корзин: в ячейке — начало списка коллизий; номер ячейки — остаток хэша по размеру таблицы. */
         transient volatile AtomicReferenceArray<HashEntry<K, V>> table;
+        /** Число пар в сегменте; читается без блокировки в {@code get} и {@code size}. */
         transient volatile int count;
+        /** Порог перехэширования: при {@code count > threshold} удваивается {@code table}. */
         transient int threshold;
         final float loadFactor;
 
@@ -72,11 +84,13 @@ public class ConcurrentHashMap<K, V> {
             this.threshold = (int) (16 * loadFactor);
         }
 
+        /** Чтение без блокировки: снимок первого узла корзины, затем обход цепочки. */
         V get(Object key, int hash) {
             AtomicReferenceArray<HashEntry<K, V>> tab = table;
             int index = (tab.length() - 1) & hash;
             HashEntry<K, V> e = tab.get(index);
 
+            // Упорядочивает чтения узла и полей value/next относительно друг друга.
             VarHandle.loadLoadFence();
 
             for (; e != null; e = e.next) {
@@ -87,6 +101,11 @@ public class ConcurrentHashMap<K, V> {
             return null;
         }
 
+        /**
+         * Вставка или обновление под блокировкой.
+         * @param onlyIfAbsent если {@code true} — не перезаписывать существующий ключ ({@code putIfAbsent})
+         * @return предыдущее значение или {@code null}, если ключ был новым
+         */
         V put(K key, int hash, V value, boolean onlyIfAbsent) {
             lock();
             try {
@@ -106,8 +125,10 @@ public class ConcurrentHashMap<K, V> {
                         return oldValue;
                     }
                 }
+                // Новый узел в начало цепочки (открытая адресация внутри корзины).
                 tab.set(index, new HashEntry<>(key, hash, first, value));
 
+                // Публикация узла в корзине до увеличения count для lock-free читателей.
                 VarHandle.storeStoreFence();
 
                 count = c + 1;
@@ -117,6 +138,7 @@ public class ConcurrentHashMap<K, V> {
             }
         }
 
+        /** Слияние под блокировкой; {@code null} из remapper удаляет ключ из корзины. */
         V merge(K key, int hash, V value, BiFunction<? super V, ? super V, ? extends V> remappingFunction) {
             lock();
             try {
@@ -139,6 +161,7 @@ public class ConcurrentHashMap<K, V> {
                         return newValue;
                     }
                 }
+                // Ключа не было — вставка с переданным value.
                 tab.set(index, new HashEntry<>(key, hash, first, value));
                 count = c + 1;
                 return value;
@@ -163,6 +186,7 @@ public class ConcurrentHashMap<K, V> {
             }
         }
 
+        /** Пересборка цепочки без удаляемого ключа (новые узлы — обратный порядок). */
         private void removeFromBucket(AtomicReferenceArray<HashEntry<K, V>> tab, int index, int hash, Object key) {
             HashEntry<K, V> rebuilt = null;
             for (HashEntry<K, V> e = tab.get(index); e != null; e = e.next) {
@@ -173,6 +197,7 @@ public class ConcurrentHashMap<K, V> {
             tab.set(index, rebuilt);
         }
 
+        /** Удвоение {@code table} и переразмещение узлов по новым индексам корзин. */
         private void rehash() {
             AtomicReferenceArray<HashEntry<K, V>> oldTable = table;
             int oldCapacity = oldTable.length();
@@ -194,6 +219,7 @@ public class ConcurrentHashMap<K, V> {
         }
     }
 
+    /** Дополнительное перемешивание hashCode — меньше скоплений в корзинах. */
     private int hash(Object key) {
         if (key == null) {
             throw new NullPointerException("key must not be null");
@@ -237,6 +263,10 @@ public class ConcurrentHashMap<K, V> {
         return segmentFor(h).merge(key, h, value, remappingFunction);
     }
 
+    /**
+     * Размер карты: два прохода по {@code count} без блокировок; если сумма совпала —
+     * возвращаем её. Иначе блокируем все сегменты и считаем снова (точный, но дорогой путь).
+     */
     public int size() {
         final Segment<K, V>[] segs = this.segments;
         long last = -1;
@@ -273,6 +303,7 @@ public class ConcurrentHashMap<K, V> {
         return (int) Math.min(last, Integer.MAX_VALUE);
     }
 
+    /** Очистка всей карты: сначала захват всех сегментов, затем {@code clear} в каждом. */
     public void clear() {
         final Segment<K, V>[] segs = this.segments;
         for (Segment<K, V> seg : segs) {
@@ -293,9 +324,11 @@ public class ConcurrentHashMap<K, V> {
         return new EntryIterator();
     }
 
+    /** Обход сегментов и корзин; снимок на момент итерации, без блокировок. */
     private class EntryIterator implements Iterator<Map.Entry<K, V>> {
         private int segmentIndex;
         private AtomicReferenceArray<HashEntry<K, V>> currentTable;
+        /** Следующий узел для {@code next()} или {@code null}, если обход завершён. */
         private HashEntry<K, V> nextEntry;
         private int bucketIndex;
 
@@ -307,6 +340,7 @@ public class ConcurrentHashMap<K, V> {
             advance();
         }
 
+        /** Ищет следующий непустой узел, переходя к следующей корзине или сегменту. */
         private void advance() {
             while (segmentIndex < segments.length) {
                 if (currentTable != null) {
