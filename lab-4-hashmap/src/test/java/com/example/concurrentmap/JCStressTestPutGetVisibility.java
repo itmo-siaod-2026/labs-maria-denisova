@@ -4,14 +4,6 @@ import org.openjdk.jcstress.annotations.*;
 import org.openjdk.jcstress.infra.results.II_Result;
 import java.util.concurrent.atomic.AtomicInteger;
 
-/**
- * Видимость после {@code put}: писатель кладёт пару и выставляет флаг {@code putCompleted},
- * читатели ждут флага и вызывают {@code get(1)}.
- * <p>
- * Инвариант: после завершения put (по флагу) значение должно быть видно читателям — исходы
- * {@code (0, 0)} и {@code (0, 1)} логически невозможны; допустимы {@code (1, 0)} (отставание второго)
- * и {@code (1, 1)} (оба увидели запись).
- */
 @JCStressTest
 @Outcome(id = "0, 0", expect = Expect.FORBIDDEN, desc = "Невозможно: put завершился, но никто не увидел")
 @Outcome(id = "0, 1", expect = Expect.FORBIDDEN, desc = "Нарушение порядка: первый не увидел завершённый put")
@@ -26,11 +18,13 @@ public class JCStressTestPutGetVisibility {
     @Actor
     public void writer() {
         map.put(1, 1);
+        // Гарантируем, что put завершён ДО того, как читатели начнут
         putCompleted.set(1);
     }
 
     @Actor
     public void reader1(II_Result r) {
+        // Ждём завершения put
         while (putCompleted.get() == 0) {
             Thread.onSpinWait();
         }
@@ -39,6 +33,7 @@ public class JCStressTestPutGetVisibility {
 
     @Actor
     public void reader2(II_Result r) {
+        // Ждём завершения put
         while (putCompleted.get() == 0) {
             Thread.onSpinWait();
         }

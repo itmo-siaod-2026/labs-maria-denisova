@@ -3,6 +3,7 @@ package com.example.concurrentmap;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.lang.reflect.Field;
 import java.util.*;
 import java.util.concurrent.*;
 import java.util.function.BiFunction;
@@ -105,5 +106,42 @@ class ConcurrentHashMapTest {
         for (int i = 0; i < 4000; i++) {
             assertNotNull(map.get(i));
         }
+    }
+
+    @Test
+    void shouldResizeSegmentsAndPreserveData() throws Exception {
+        ConcurrentHashMap<Integer, Integer> map = new ConcurrentHashMap<>(1);
+        int initialSegments = getSegmentCount(map);
+        int elements = 1000;
+        for (int i = 0; i < elements; i++) {
+            map.put(i, i);
+        }
+        int resizedSegments = getSegmentCount(map);
+
+        // Проверяем, что сегментов стало больше
+        assertTrue(resizedSegments > initialSegments,"Количество сегментов должно увеличиться");
+
+        // Проверяем размер
+        assertEquals(elements, map.size(), "Размер карты после resize неверный");
+
+        // Проверяем, что данные сохранились
+        for (int i = 0; i < elements; i++) {
+            assertEquals(i, map.get(i), "Потерян элемент с ключом " + i);
+        }
+    }
+
+    @SuppressWarnings("unchecked")
+    private int getSegmentCount(ConcurrentHashMap<?, ?> map
+    ) throws Exception {
+
+        /*Если используется SegmentState:*/
+        Field stateField =
+                ConcurrentHashMap.class.getDeclaredField("state");
+        stateField.setAccessible(true);
+        Object state = stateField.get(map);
+        Field segmentsField = state.getClass().getDeclaredField("segments");
+        segmentsField.setAccessible(true);
+        Object[] segments = (Object[]) segmentsField.get(state);
+        return segments.length;
     }
 }
