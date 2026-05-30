@@ -1,0 +1,1195 @@
+
+<html>
+<head>
+<title>Java Concurrency Stress test report</title>
+ <style type="text/css">
+   * { font-family: Arial; }
+   table { font-size: 9pt; }
+   a { color: #000000; }
+   .progress { padding: 0px; }
+   .header { text-align: left; }
+   .section1 { font-size: 12pt; background-color: #BDB76B; color: #000000; font-weight: bold;}
+   .section2 { font-size: 12pt; background-color: #F0E68C; color: #000000; font-weight: bold;}
+   .cell1 { background-color: #FAFAD2; }
+   .cell2 { background-color: #EEE8AA; }
+   .passedProgress { background-color: #00AA00; color: #FFFFFF; text-align: center; font-weight: bold; }
+   .failedProgress { background-color: #FF0000; color: #FFFFFF; text-align: center; font-weight: bold; }
+   .passed { color: #00AA00; text-align: center; font-weight: bold; }
+   .failed { color: #FF0000; text-align: center; font-weight: bold; }
+   .interesting { color: #0000FF; text-align: center; font-weight: bold; }
+   .spec { color: #AAAA00; text-align: center; font-weight: bold; }
+   .endResult { font-size: 48pt; text-align: center; font-weight: bold; }
+ </style>
+</head>
+<body>
+<h1>com.example.concurrentmap.JCStressTestClearGetRace</h1>
+<h3>Description and references</h3>
+<p>null</p>
+<h3>Environment</h3>
+<table>
+<tr>
+<td nowrap>java.specification.name</td>
+<td nowrap>Java Platform API Specification</td>
+</tr>
+<tr>
+<td nowrap>java.specification.vendor</td>
+<td nowrap>Oracle Corporation</td>
+</tr>
+<tr>
+<td nowrap>java.specification.version</td>
+<td nowrap>17</td>
+</tr>
+<tr>
+<td nowrap>java.vendor</td>
+<td nowrap>Microsoft</td>
+</tr>
+<tr>
+<td nowrap>java.version</td>
+<td nowrap>17.0.16</td>
+</tr>
+<tr>
+<td nowrap>java.vm.name</td>
+<td nowrap>OpenJDK 64-Bit Server VM</td>
+</tr>
+<tr>
+<td nowrap>java.vm.vendor</td>
+<td nowrap>Microsoft</td>
+</tr>
+<tr>
+<td nowrap>java.vm.version</td>
+<td nowrap>17.0.16+8-LTS</td>
+</tr>
+<tr>
+<td nowrap>os.arch</td>
+<td nowrap>amd64</td>
+</tr>
+<tr>
+<td nowrap>os.name</td>
+<td nowrap>Windows 10</td>
+</tr>
+<tr>
+<td nowrap>os.version</td>
+<td nowrap>10.0</td>
+</tr>
+</table>
+<h3>Results</h3>
+<table cellpadding=5 border=1>
+<tr>
+<th>Compilation Mode</th>
+<th>Scheduling Class</th>
+<th>Java Options</th>
+<th>Status</th>
+<th colspan=3>Observed States</th>
+</tr>
+<tr>
+<th colspan=4></th>
+<th nowrap align='center'>0, 0</th>
+<th nowrap align='center'>1, 0</th>
+<th nowrap align='center'>1, 1</th>
+</tr>
+<tr>
+<td colspan=4></td>
+<td>Acceptable</td>
+<td>Acceptable</td>
+<td>Acceptable</td>
+</tr>
+<tr>
+<td colspan=4></td>
+<td>Согласованное «пусто»: get(1) == null и size() == 0.</td>
+<td>Допустимое перекрытие: size уже 0, а get ещё видит старое значение (отставание size при записи).</td>
+<td>До clear: ключ и ненулевой size.</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    clearer: Interpreter
+    reader: Interpreter
+</pre></td>
+<td nowrap valign=top width=10><pre>    clearer: package group free, core group free
+    reader: package group free, core group free
+</pre></td>
+<td        valign=top width=10>
+<pre>[-javaagent:D:\IntelliJ IDEA Community Edition 2025.2.1\lib\idea_rt.jar=6672, -Dfile.encoding=UTF-8, -XX:+UseBiasedLocking]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>48409</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>580</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>1095862</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    clearer: Interpreter
+    reader: Interpreter
+</pre></td>
+<td nowrap valign=top width=10><pre>    clearer: package group free, core group free
+    reader: package group free, core group free
+</pre></td>
+<td        valign=top width=10>
+<pre>[-javaagent:D:\IntelliJ IDEA Community Edition 2025.2.1\lib\idea_rt.jar=6672, -Dfile.encoding=UTF-8, -XX:-UseBiasedLocking]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>36486</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>663</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>1271542</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    clearer: C1
+    reader: Interpreter
+</pre></td>
+<td nowrap valign=top width=10><pre>    clearer: package group free, core group free
+    reader: package group free, core group free
+</pre></td>
+<td        valign=top width=10>
+<pre>[-javaagent:D:\IntelliJ IDEA Community Edition 2025.2.1\lib\idea_rt.jar=6672, -Dfile.encoding=UTF-8, -XX:+UseBiasedLocking]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>59242</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>649</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>1115680</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    clearer: C1
+    reader: Interpreter
+</pre></td>
+<td nowrap valign=top width=10><pre>    clearer: package group free, core group free
+    reader: package group free, core group free
+</pre></td>
+<td        valign=top width=10>
+<pre>[-javaagent:D:\IntelliJ IDEA Community Edition 2025.2.1\lib\idea_rt.jar=6672, -Dfile.encoding=UTF-8, -XX:-UseBiasedLocking]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>44805</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>618</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>1150628</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    clearer: C2
+    reader: Interpreter
+</pre></td>
+<td nowrap valign=top width=10><pre>    clearer: package group free, core group free
+    reader: package group free, core group free
+</pre></td>
+<td        valign=top width=10>
+<pre>[-javaagent:D:\IntelliJ IDEA Community Edition 2025.2.1\lib\idea_rt.jar=6672, -Dfile.encoding=UTF-8, -XX:+UseBiasedLocking]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>14764</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>557</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>1508410</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    clearer: C2
+    reader: Interpreter
+</pre></td>
+<td nowrap valign=top width=10><pre>    clearer: package group free, core group free
+    reader: package group free, core group free
+</pre></td>
+<td        valign=top width=10>
+<pre>[-javaagent:D:\IntelliJ IDEA Community Edition 2025.2.1\lib\idea_rt.jar=6672, -Dfile.encoding=UTF-8, -XX:+UseBiasedLocking, -XX:+StressLCM, -XX:+StressGCM, -XX:+StressIGVN, -XX:+StressCCP, -XX:StressSeed=1148923687]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>37223</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>663</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>1311765</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    clearer: C2
+    reader: Interpreter
+</pre></td>
+<td nowrap valign=top width=10><pre>    clearer: package group free, core group free
+    reader: package group free, core group free
+</pre></td>
+<td        valign=top width=10>
+<pre>[-javaagent:D:\IntelliJ IDEA Community Edition 2025.2.1\lib\idea_rt.jar=6672, -Dfile.encoding=UTF-8, -XX:+UseBiasedLocking, -XX:+StressLCM, -XX:+StressGCM, -XX:+StressIGVN, -XX:+StressCCP, -XX:StressSeed=1215889901]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>36268</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>507</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>1200236</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    clearer: C2
+    reader: Interpreter
+</pre></td>
+<td nowrap valign=top width=10><pre>    clearer: package group free, core group free
+    reader: package group free, core group free
+</pre></td>
+<td        valign=top width=10>
+<pre>[-javaagent:D:\IntelliJ IDEA Community Edition 2025.2.1\lib\idea_rt.jar=6672, -Dfile.encoding=UTF-8, -XX:+UseBiasedLocking, -XX:+StressLCM, -XX:+StressGCM, -XX:+StressIGVN, -XX:+StressCCP, -XX:StressSeed=1250332787]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>43057</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>578</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>1162656</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    clearer: C2
+    reader: Interpreter
+</pre></td>
+<td nowrap valign=top width=10><pre>    clearer: package group free, core group free
+    reader: package group free, core group free
+</pre></td>
+<td        valign=top width=10>
+<pre>[-javaagent:D:\IntelliJ IDEA Community Edition 2025.2.1\lib\idea_rt.jar=6672, -Dfile.encoding=UTF-8, -XX:+UseBiasedLocking, -XX:+StressLCM, -XX:+StressGCM, -XX:+StressIGVN, -XX:+StressCCP, -XX:StressSeed=1925817621]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>34126</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>804</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>1212321</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    clearer: C2
+    reader: Interpreter
+</pre></td>
+<td nowrap valign=top width=10><pre>    clearer: package group free, core group free
+    reader: package group free, core group free
+</pre></td>
+<td        valign=top width=10>
+<pre>[-javaagent:D:\IntelliJ IDEA Community Edition 2025.2.1\lib\idea_rt.jar=6672, -Dfile.encoding=UTF-8, -XX:+UseBiasedLocking, -XX:+StressLCM, -XX:+StressGCM, -XX:+StressIGVN, -XX:+StressCCP, -XX:StressSeed=1961663070]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>38413</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>625</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>1167253</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    clearer: C2
+    reader: Interpreter
+</pre></td>
+<td nowrap valign=top width=10><pre>    clearer: package group free, core group free
+    reader: package group free, core group free
+</pre></td>
+<td        valign=top width=10>
+<pre>[-javaagent:D:\IntelliJ IDEA Community Edition 2025.2.1\lib\idea_rt.jar=6672, -Dfile.encoding=UTF-8, -XX:-UseBiasedLocking]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>51629</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>641</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>1225701</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    clearer: C2
+    reader: Interpreter
+</pre></td>
+<td nowrap valign=top width=10><pre>    clearer: package group free, core group free
+    reader: package group free, core group free
+</pre></td>
+<td        valign=top width=10>
+<pre>[-javaagent:D:\IntelliJ IDEA Community Edition 2025.2.1\lib\idea_rt.jar=6672, -Dfile.encoding=UTF-8, -XX:-UseBiasedLocking, -XX:+StressLCM, -XX:+StressGCM, -XX:+StressIGVN, -XX:+StressCCP, -XX:StressSeed=1604707564]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>35424</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>807</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>1221260</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    clearer: C2
+    reader: Interpreter
+</pre></td>
+<td nowrap valign=top width=10><pre>    clearer: package group free, core group free
+    reader: package group free, core group free
+</pre></td>
+<td        valign=top width=10>
+<pre>[-javaagent:D:\IntelliJ IDEA Community Edition 2025.2.1\lib\idea_rt.jar=6672, -Dfile.encoding=UTF-8, -XX:-UseBiasedLocking, -XX:+StressLCM, -XX:+StressGCM, -XX:+StressIGVN, -XX:+StressCCP, -XX:StressSeed=1965270231]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>34698</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>552</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>1263201</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    clearer: C2
+    reader: Interpreter
+</pre></td>
+<td nowrap valign=top width=10><pre>    clearer: package group free, core group free
+    reader: package group free, core group free
+</pre></td>
+<td        valign=top width=10>
+<pre>[-javaagent:D:\IntelliJ IDEA Community Edition 2025.2.1\lib\idea_rt.jar=6672, -Dfile.encoding=UTF-8, -XX:-UseBiasedLocking, -XX:+StressLCM, -XX:+StressGCM, -XX:+StressIGVN, -XX:+StressCCP, -XX:StressSeed=273159472]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>26857</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>549</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>1209605</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    clearer: C2
+    reader: Interpreter
+</pre></td>
+<td nowrap valign=top width=10><pre>    clearer: package group free, core group free
+    reader: package group free, core group free
+</pre></td>
+<td        valign=top width=10>
+<pre>[-javaagent:D:\IntelliJ IDEA Community Edition 2025.2.1\lib\idea_rt.jar=6672, -Dfile.encoding=UTF-8, -XX:-UseBiasedLocking, -XX:+StressLCM, -XX:+StressGCM, -XX:+StressIGVN, -XX:+StressCCP, -XX:StressSeed=462037234]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>38998</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>587</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>1269106</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    clearer: C2
+    reader: Interpreter
+</pre></td>
+<td nowrap valign=top width=10><pre>    clearer: package group free, core group free
+    reader: package group free, core group free
+</pre></td>
+<td        valign=top width=10>
+<pre>[-javaagent:D:\IntelliJ IDEA Community Edition 2025.2.1\lib\idea_rt.jar=6672, -Dfile.encoding=UTF-8, -XX:-UseBiasedLocking, -XX:+StressLCM, -XX:+StressGCM, -XX:+StressIGVN, -XX:+StressCCP, -XX:StressSeed=702483615]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>44444</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>587</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>1181740</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    clearer: Interpreter
+    reader: C1
+</pre></td>
+<td nowrap valign=top width=10><pre>    clearer: package group free, core group free
+    reader: package group free, core group free
+</pre></td>
+<td        valign=top width=10>
+<pre>[-javaagent:D:\IntelliJ IDEA Community Edition 2025.2.1\lib\idea_rt.jar=6672, -Dfile.encoding=UTF-8, -XX:+UseBiasedLocking]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>31980</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>273</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>1133078</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    clearer: Interpreter
+    reader: C1
+</pre></td>
+<td nowrap valign=top width=10><pre>    clearer: package group free, core group free
+    reader: package group free, core group free
+</pre></td>
+<td        valign=top width=10>
+<pre>[-javaagent:D:\IntelliJ IDEA Community Edition 2025.2.1\lib\idea_rt.jar=6672, -Dfile.encoding=UTF-8, -XX:-UseBiasedLocking]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>30899</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>303</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>1267249</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    clearer: C1
+    reader: C1
+</pre></td>
+<td nowrap valign=top width=10><pre>    clearer: package group free, core group free
+    reader: package group free, core group free
+</pre></td>
+<td        valign=top width=10>
+<pre>[-javaagent:D:\IntelliJ IDEA Community Edition 2025.2.1\lib\idea_rt.jar=6672, -Dfile.encoding=UTF-8, -XX:+UseBiasedLocking]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>38219</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>277</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>1157555</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    clearer: C1
+    reader: C1
+</pre></td>
+<td nowrap valign=top width=10><pre>    clearer: package group free, core group free
+    reader: package group free, core group free
+</pre></td>
+<td        valign=top width=10>
+<pre>[-javaagent:D:\IntelliJ IDEA Community Edition 2025.2.1\lib\idea_rt.jar=6672, -Dfile.encoding=UTF-8, -XX:-UseBiasedLocking]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>52326</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>327</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>1153638</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    clearer: C2
+    reader: C1
+</pre></td>
+<td nowrap valign=top width=10><pre>    clearer: package group free, core group free
+    reader: package group free, core group free
+</pre></td>
+<td        valign=top width=10>
+<pre>[-javaagent:D:\IntelliJ IDEA Community Edition 2025.2.1\lib\idea_rt.jar=6672, -Dfile.encoding=UTF-8, -XX:+UseBiasedLocking]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>48244</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>295</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>1178232</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    clearer: C2
+    reader: C1
+</pre></td>
+<td nowrap valign=top width=10><pre>    clearer: package group free, core group free
+    reader: package group free, core group free
+</pre></td>
+<td        valign=top width=10>
+<pre>[-javaagent:D:\IntelliJ IDEA Community Edition 2025.2.1\lib\idea_rt.jar=6672, -Dfile.encoding=UTF-8, -XX:+UseBiasedLocking, -XX:+StressLCM, -XX:+StressGCM, -XX:+StressIGVN, -XX:+StressCCP, -XX:StressSeed=1801318956]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>52499</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>304</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>1081808</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    clearer: C2
+    reader: C1
+</pre></td>
+<td nowrap valign=top width=10><pre>    clearer: package group free, core group free
+    reader: package group free, core group free
+</pre></td>
+<td        valign=top width=10>
+<pre>[-javaagent:D:\IntelliJ IDEA Community Edition 2025.2.1\lib\idea_rt.jar=6672, -Dfile.encoding=UTF-8, -XX:+UseBiasedLocking, -XX:+StressLCM, -XX:+StressGCM, -XX:+StressIGVN, -XX:+StressCCP, -XX:StressSeed=258775187]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>35265</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>303</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>1201443</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    clearer: C2
+    reader: C1
+</pre></td>
+<td nowrap valign=top width=10><pre>    clearer: package group free, core group free
+    reader: package group free, core group free
+</pre></td>
+<td        valign=top width=10>
+<pre>[-javaagent:D:\IntelliJ IDEA Community Edition 2025.2.1\lib\idea_rt.jar=6672, -Dfile.encoding=UTF-8, -XX:+UseBiasedLocking, -XX:+StressLCM, -XX:+StressGCM, -XX:+StressIGVN, -XX:+StressCCP, -XX:StressSeed=414733834]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>26286</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>267</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>1230938</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    clearer: C2
+    reader: C1
+</pre></td>
+<td nowrap valign=top width=10><pre>    clearer: package group free, core group free
+    reader: package group free, core group free
+</pre></td>
+<td        valign=top width=10>
+<pre>[-javaagent:D:\IntelliJ IDEA Community Edition 2025.2.1\lib\idea_rt.jar=6672, -Dfile.encoding=UTF-8, -XX:+UseBiasedLocking, -XX:+StressLCM, -XX:+StressGCM, -XX:+StressIGVN, -XX:+StressCCP, -XX:StressSeed=631371905]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>55043</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>343</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>1181625</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    clearer: C2
+    reader: C1
+</pre></td>
+<td nowrap valign=top width=10><pre>    clearer: package group free, core group free
+    reader: package group free, core group free
+</pre></td>
+<td        valign=top width=10>
+<pre>[-javaagent:D:\IntelliJ IDEA Community Edition 2025.2.1\lib\idea_rt.jar=6672, -Dfile.encoding=UTF-8, -XX:+UseBiasedLocking, -XX:+StressLCM, -XX:+StressGCM, -XX:+StressIGVN, -XX:+StressCCP, -XX:StressSeed=94721792]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>46605</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>346</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>1271980</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    clearer: C2
+    reader: C1
+</pre></td>
+<td nowrap valign=top width=10><pre>    clearer: package group free, core group free
+    reader: package group free, core group free
+</pre></td>
+<td        valign=top width=10>
+<pre>[-javaagent:D:\IntelliJ IDEA Community Edition 2025.2.1\lib\idea_rt.jar=6672, -Dfile.encoding=UTF-8, -XX:-UseBiasedLocking]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>32526</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>251</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>1224714</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    clearer: C2
+    reader: C1
+</pre></td>
+<td nowrap valign=top width=10><pre>    clearer: package group free, core group free
+    reader: package group free, core group free
+</pre></td>
+<td        valign=top width=10>
+<pre>[-javaagent:D:\IntelliJ IDEA Community Edition 2025.2.1\lib\idea_rt.jar=6672, -Dfile.encoding=UTF-8, -XX:-UseBiasedLocking, -XX:+StressLCM, -XX:+StressGCM, -XX:+StressIGVN, -XX:+StressCCP, -XX:StressSeed=1026200203]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>75967</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>304</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>1048100</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    clearer: C2
+    reader: C1
+</pre></td>
+<td nowrap valign=top width=10><pre>    clearer: package group free, core group free
+    reader: package group free, core group free
+</pre></td>
+<td        valign=top width=10>
+<pre>[-javaagent:D:\IntelliJ IDEA Community Edition 2025.2.1\lib\idea_rt.jar=6672, -Dfile.encoding=UTF-8, -XX:-UseBiasedLocking, -XX:+StressLCM, -XX:+StressGCM, -XX:+StressIGVN, -XX:+StressCCP, -XX:StressSeed=1204463184]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>35846</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>333</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>1149632</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    clearer: C2
+    reader: C1
+</pre></td>
+<td nowrap valign=top width=10><pre>    clearer: package group free, core group free
+    reader: package group free, core group free
+</pre></td>
+<td        valign=top width=10>
+<pre>[-javaagent:D:\IntelliJ IDEA Community Edition 2025.2.1\lib\idea_rt.jar=6672, -Dfile.encoding=UTF-8, -XX:-UseBiasedLocking, -XX:+StressLCM, -XX:+StressGCM, -XX:+StressIGVN, -XX:+StressCCP, -XX:StressSeed=1771118217]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>37962</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>341</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>1198708</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    clearer: C2
+    reader: C1
+</pre></td>
+<td nowrap valign=top width=10><pre>    clearer: package group free, core group free
+    reader: package group free, core group free
+</pre></td>
+<td        valign=top width=10>
+<pre>[-javaagent:D:\IntelliJ IDEA Community Edition 2025.2.1\lib\idea_rt.jar=6672, -Dfile.encoding=UTF-8, -XX:-UseBiasedLocking, -XX:+StressLCM, -XX:+StressGCM, -XX:+StressIGVN, -XX:+StressCCP, -XX:StressSeed=19731551]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>38585</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>296</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>1269810</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    clearer: C2
+    reader: C1
+</pre></td>
+<td nowrap valign=top width=10><pre>    clearer: package group free, core group free
+    reader: package group free, core group free
+</pre></td>
+<td        valign=top width=10>
+<pre>[-javaagent:D:\IntelliJ IDEA Community Edition 2025.2.1\lib\idea_rt.jar=6672, -Dfile.encoding=UTF-8, -XX:-UseBiasedLocking, -XX:+StressLCM, -XX:+StressGCM, -XX:+StressIGVN, -XX:+StressCCP, -XX:StressSeed=805298394]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>37104</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>309</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>1281518</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    clearer: Interpreter
+    reader: C2
+</pre></td>
+<td nowrap valign=top width=10><pre>    clearer: package group free, core group free
+    reader: package group free, core group free
+</pre></td>
+<td        valign=top width=10>
+<pre>[-javaagent:D:\IntelliJ IDEA Community Edition 2025.2.1\lib\idea_rt.jar=6672, -Dfile.encoding=UTF-8, -XX:+UseBiasedLocking]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>29620</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>321</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>1278750</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    clearer: Interpreter
+    reader: C2
+</pre></td>
+<td nowrap valign=top width=10><pre>    clearer: package group free, core group free
+    reader: package group free, core group free
+</pre></td>
+<td        valign=top width=10>
+<pre>[-javaagent:D:\IntelliJ IDEA Community Edition 2025.2.1\lib\idea_rt.jar=6672, -Dfile.encoding=UTF-8, -XX:+UseBiasedLocking, -XX:+StressLCM, -XX:+StressGCM, -XX:+StressIGVN, -XX:+StressCCP, -XX:StressSeed=1402769778]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>43595</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>311</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>1285265</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    clearer: Interpreter
+    reader: C2
+</pre></td>
+<td nowrap valign=top width=10><pre>    clearer: package group free, core group free
+    reader: package group free, core group free
+</pre></td>
+<td        valign=top width=10>
+<pre>[-javaagent:D:\IntelliJ IDEA Community Edition 2025.2.1\lib\idea_rt.jar=6672, -Dfile.encoding=UTF-8, -XX:+UseBiasedLocking, -XX:+StressLCM, -XX:+StressGCM, -XX:+StressIGVN, -XX:+StressCCP, -XX:StressSeed=1488615995]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>35886</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>243</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>1159922</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    clearer: Interpreter
+    reader: C2
+</pre></td>
+<td nowrap valign=top width=10><pre>    clearer: package group free, core group free
+    reader: package group free, core group free
+</pre></td>
+<td        valign=top width=10>
+<pre>[-javaagent:D:\IntelliJ IDEA Community Edition 2025.2.1\lib\idea_rt.jar=6672, -Dfile.encoding=UTF-8, -XX:+UseBiasedLocking, -XX:+StressLCM, -XX:+StressGCM, -XX:+StressIGVN, -XX:+StressCCP, -XX:StressSeed=1597977610]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>31337</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>285</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>1195149</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    clearer: Interpreter
+    reader: C2
+</pre></td>
+<td nowrap valign=top width=10><pre>    clearer: package group free, core group free
+    reader: package group free, core group free
+</pre></td>
+<td        valign=top width=10>
+<pre>[-javaagent:D:\IntelliJ IDEA Community Edition 2025.2.1\lib\idea_rt.jar=6672, -Dfile.encoding=UTF-8, -XX:+UseBiasedLocking, -XX:+StressLCM, -XX:+StressGCM, -XX:+StressIGVN, -XX:+StressCCP, -XX:StressSeed=1942741301]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>15295</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>294</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>1426222</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    clearer: Interpreter
+    reader: C2
+</pre></td>
+<td nowrap valign=top width=10><pre>    clearer: package group free, core group free
+    reader: package group free, core group free
+</pre></td>
+<td        valign=top width=10>
+<pre>[-javaagent:D:\IntelliJ IDEA Community Edition 2025.2.1\lib\idea_rt.jar=6672, -Dfile.encoding=UTF-8, -XX:+UseBiasedLocking, -XX:+StressLCM, -XX:+StressGCM, -XX:+StressIGVN, -XX:+StressCCP, -XX:StressSeed=2004884973]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>44373</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>418</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>1263900</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    clearer: Interpreter
+    reader: C2
+</pre></td>
+<td nowrap valign=top width=10><pre>    clearer: package group free, core group free
+    reader: package group free, core group free
+</pre></td>
+<td        valign=top width=10>
+<pre>[-javaagent:D:\IntelliJ IDEA Community Edition 2025.2.1\lib\idea_rt.jar=6672, -Dfile.encoding=UTF-8, -XX:-UseBiasedLocking]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>49664</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>314</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>1146073</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    clearer: Interpreter
+    reader: C2
+</pre></td>
+<td nowrap valign=top width=10><pre>    clearer: package group free, core group free
+    reader: package group free, core group free
+</pre></td>
+<td        valign=top width=10>
+<pre>[-javaagent:D:\IntelliJ IDEA Community Edition 2025.2.1\lib\idea_rt.jar=6672, -Dfile.encoding=UTF-8, -XX:-UseBiasedLocking, -XX:+StressLCM, -XX:+StressGCM, -XX:+StressIGVN, -XX:+StressCCP, -XX:StressSeed=1558156584]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>39129</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>297</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>1105425</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    clearer: Interpreter
+    reader: C2
+</pre></td>
+<td nowrap valign=top width=10><pre>    clearer: package group free, core group free
+    reader: package group free, core group free
+</pre></td>
+<td        valign=top width=10>
+<pre>[-javaagent:D:\IntelliJ IDEA Community Edition 2025.2.1\lib\idea_rt.jar=6672, -Dfile.encoding=UTF-8, -XX:-UseBiasedLocking, -XX:+StressLCM, -XX:+StressGCM, -XX:+StressIGVN, -XX:+StressCCP, -XX:StressSeed=313288212]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>47292</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>326</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>1189393</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    clearer: Interpreter
+    reader: C2
+</pre></td>
+<td nowrap valign=top width=10><pre>    clearer: package group free, core group free
+    reader: package group free, core group free
+</pre></td>
+<td        valign=top width=10>
+<pre>[-javaagent:D:\IntelliJ IDEA Community Edition 2025.2.1\lib\idea_rt.jar=6672, -Dfile.encoding=UTF-8, -XX:-UseBiasedLocking, -XX:+StressLCM, -XX:+StressGCM, -XX:+StressIGVN, -XX:+StressCCP, -XX:StressSeed=326405725]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>37090</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>282</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>1168919</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    clearer: Interpreter
+    reader: C2
+</pre></td>
+<td nowrap valign=top width=10><pre>    clearer: package group free, core group free
+    reader: package group free, core group free
+</pre></td>
+<td        valign=top width=10>
+<pre>[-javaagent:D:\IntelliJ IDEA Community Edition 2025.2.1\lib\idea_rt.jar=6672, -Dfile.encoding=UTF-8, -XX:-UseBiasedLocking, -XX:+StressLCM, -XX:+StressGCM, -XX:+StressIGVN, -XX:+StressCCP, -XX:StressSeed=550619707]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>8179</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>486</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>1504826</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    clearer: Interpreter
+    reader: C2
+</pre></td>
+<td nowrap valign=top width=10><pre>    clearer: package group free, core group free
+    reader: package group free, core group free
+</pre></td>
+<td        valign=top width=10>
+<pre>[-javaagent:D:\IntelliJ IDEA Community Edition 2025.2.1\lib\idea_rt.jar=6672, -Dfile.encoding=UTF-8, -XX:-UseBiasedLocking, -XX:+StressLCM, -XX:+StressGCM, -XX:+StressIGVN, -XX:+StressCCP, -XX:StressSeed=961290429]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>42874</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>319</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>1214298</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    clearer: C1
+    reader: C2
+</pre></td>
+<td nowrap valign=top width=10><pre>    clearer: package group free, core group free
+    reader: package group free, core group free
+</pre></td>
+<td        valign=top width=10>
+<pre>[-javaagent:D:\IntelliJ IDEA Community Edition 2025.2.1\lib\idea_rt.jar=6672, -Dfile.encoding=UTF-8, -XX:+UseBiasedLocking]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>52275</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>235</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>1051381</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    clearer: C1
+    reader: C2
+</pre></td>
+<td nowrap valign=top width=10><pre>    clearer: package group free, core group free
+    reader: package group free, core group free
+</pre></td>
+<td        valign=top width=10>
+<pre>[-javaagent:D:\IntelliJ IDEA Community Edition 2025.2.1\lib\idea_rt.jar=6672, -Dfile.encoding=UTF-8, -XX:+UseBiasedLocking, -XX:+StressLCM, -XX:+StressGCM, -XX:+StressIGVN, -XX:+StressCCP, -XX:StressSeed=2047134950]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>30899</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>310</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>1400362</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    clearer: C1
+    reader: C2
+</pre></td>
+<td nowrap valign=top width=10><pre>    clearer: package group free, core group free
+    reader: package group free, core group free
+</pre></td>
+<td        valign=top width=10>
+<pre>[-javaagent:D:\IntelliJ IDEA Community Edition 2025.2.1\lib\idea_rt.jar=6672, -Dfile.encoding=UTF-8, -XX:+UseBiasedLocking, -XX:+StressLCM, -XX:+StressGCM, -XX:+StressIGVN, -XX:+StressCCP, -XX:StressSeed=455878376]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>37298</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>306</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>1158447</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    clearer: C1
+    reader: C2
+</pre></td>
+<td nowrap valign=top width=10><pre>    clearer: package group free, core group free
+    reader: package group free, core group free
+</pre></td>
+<td        valign=top width=10>
+<pre>[-javaagent:D:\IntelliJ IDEA Community Edition 2025.2.1\lib\idea_rt.jar=6672, -Dfile.encoding=UTF-8, -XX:+UseBiasedLocking, -XX:+StressLCM, -XX:+StressGCM, -XX:+StressIGVN, -XX:+StressCCP, -XX:StressSeed=485051889]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>53065</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>255</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>1081291</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    clearer: C1
+    reader: C2
+</pre></td>
+<td nowrap valign=top width=10><pre>    clearer: package group free, core group free
+    reader: package group free, core group free
+</pre></td>
+<td        valign=top width=10>
+<pre>[-javaagent:D:\IntelliJ IDEA Community Edition 2025.2.1\lib\idea_rt.jar=6672, -Dfile.encoding=UTF-8, -XX:+UseBiasedLocking, -XX:+StressLCM, -XX:+StressGCM, -XX:+StressIGVN, -XX:+StressCCP, -XX:StressSeed=771514334]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>39017</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>351</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>1187403</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    clearer: C1
+    reader: C2
+</pre></td>
+<td nowrap valign=top width=10><pre>    clearer: package group free, core group free
+    reader: package group free, core group free
+</pre></td>
+<td        valign=top width=10>
+<pre>[-javaagent:D:\IntelliJ IDEA Community Edition 2025.2.1\lib\idea_rt.jar=6672, -Dfile.encoding=UTF-8, -XX:+UseBiasedLocking, -XX:+StressLCM, -XX:+StressGCM, -XX:+StressIGVN, -XX:+StressCCP, -XX:StressSeed=954623931]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>35269</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>374</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>1191128</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    clearer: C1
+    reader: C2
+</pre></td>
+<td nowrap valign=top width=10><pre>    clearer: package group free, core group free
+    reader: package group free, core group free
+</pre></td>
+<td        valign=top width=10>
+<pre>[-javaagent:D:\IntelliJ IDEA Community Edition 2025.2.1\lib\idea_rt.jar=6672, -Dfile.encoding=UTF-8, -XX:-UseBiasedLocking]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>38449</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>299</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>1136823</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    clearer: C1
+    reader: C2
+</pre></td>
+<td nowrap valign=top width=10><pre>    clearer: package group free, core group free
+    reader: package group free, core group free
+</pre></td>
+<td        valign=top width=10>
+<pre>[-javaagent:D:\IntelliJ IDEA Community Edition 2025.2.1\lib\idea_rt.jar=6672, -Dfile.encoding=UTF-8, -XX:-UseBiasedLocking, -XX:+StressLCM, -XX:+StressGCM, -XX:+StressIGVN, -XX:+StressCCP, -XX:StressSeed=1650489393]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>32848</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>319</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>1224324</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    clearer: C1
+    reader: C2
+</pre></td>
+<td nowrap valign=top width=10><pre>    clearer: package group free, core group free
+    reader: package group free, core group free
+</pre></td>
+<td        valign=top width=10>
+<pre>[-javaagent:D:\IntelliJ IDEA Community Edition 2025.2.1\lib\idea_rt.jar=6672, -Dfile.encoding=UTF-8, -XX:-UseBiasedLocking, -XX:+StressLCM, -XX:+StressGCM, -XX:+StressIGVN, -XX:+StressCCP, -XX:StressSeed=1819443727]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>39542</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>303</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>1268846</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    clearer: C1
+    reader: C2
+</pre></td>
+<td nowrap valign=top width=10><pre>    clearer: package group free, core group free
+    reader: package group free, core group free
+</pre></td>
+<td        valign=top width=10>
+<pre>[-javaagent:D:\IntelliJ IDEA Community Edition 2025.2.1\lib\idea_rt.jar=6672, -Dfile.encoding=UTF-8, -XX:-UseBiasedLocking, -XX:+StressLCM, -XX:+StressGCM, -XX:+StressIGVN, -XX:+StressCCP, -XX:StressSeed=1845700617]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>34959</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>326</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>1242686</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    clearer: C1
+    reader: C2
+</pre></td>
+<td nowrap valign=top width=10><pre>    clearer: package group free, core group free
+    reader: package group free, core group free
+</pre></td>
+<td        valign=top width=10>
+<pre>[-javaagent:D:\IntelliJ IDEA Community Edition 2025.2.1\lib\idea_rt.jar=6672, -Dfile.encoding=UTF-8, -XX:-UseBiasedLocking, -XX:+StressLCM, -XX:+StressGCM, -XX:+StressIGVN, -XX:+StressCCP, -XX:StressSeed=609800247]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>17780</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>384</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>1433887</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    clearer: C1
+    reader: C2
+</pre></td>
+<td nowrap valign=top width=10><pre>    clearer: package group free, core group free
+    reader: package group free, core group free
+</pre></td>
+<td        valign=top width=10>
+<pre>[-javaagent:D:\IntelliJ IDEA Community Edition 2025.2.1\lib\idea_rt.jar=6672, -Dfile.encoding=UTF-8, -XX:-UseBiasedLocking, -XX:+StressLCM, -XX:+StressGCM, -XX:+StressIGVN, -XX:+StressCCP, -XX:StressSeed=653550092]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>68598</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>303</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>1075950</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    clearer: C2
+    reader: C2
+</pre></td>
+<td nowrap valign=top width=10><pre>    clearer: package group free, core group free
+    reader: package group free, core group free
+</pre></td>
+<td        valign=top width=10>
+<pre>[-javaagent:D:\IntelliJ IDEA Community Edition 2025.2.1\lib\idea_rt.jar=6672, -Dfile.encoding=UTF-8, -XX:+UseBiasedLocking]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>37225</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>208</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>1158618</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    clearer: C2
+    reader: C2
+</pre></td>
+<td nowrap valign=top width=10><pre>    clearer: package group free, core group free
+    reader: package group free, core group free
+</pre></td>
+<td        valign=top width=10>
+<pre>[-javaagent:D:\IntelliJ IDEA Community Edition 2025.2.1\lib\idea_rt.jar=6672, -Dfile.encoding=UTF-8, -XX:+UseBiasedLocking, -XX:+StressLCM, -XX:+StressGCM, -XX:+StressIGVN, -XX:+StressCCP, -XX:StressSeed=1359431162]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>46500</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>359</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>1149192</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    clearer: C2
+    reader: C2
+</pre></td>
+<td nowrap valign=top width=10><pre>    clearer: package group free, core group free
+    reader: package group free, core group free
+</pre></td>
+<td        valign=top width=10>
+<pre>[-javaagent:D:\IntelliJ IDEA Community Edition 2025.2.1\lib\idea_rt.jar=6672, -Dfile.encoding=UTF-8, -XX:+UseBiasedLocking, -XX:+StressLCM, -XX:+StressGCM, -XX:+StressIGVN, -XX:+StressCCP, -XX:StressSeed=1580789120]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>39220</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>325</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>1125786</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    clearer: C2
+    reader: C2
+</pre></td>
+<td nowrap valign=top width=10><pre>    clearer: package group free, core group free
+    reader: package group free, core group free
+</pre></td>
+<td        valign=top width=10>
+<pre>[-javaagent:D:\IntelliJ IDEA Community Edition 2025.2.1\lib\idea_rt.jar=6672, -Dfile.encoding=UTF-8, -XX:+UseBiasedLocking, -XX:+StressLCM, -XX:+StressGCM, -XX:+StressIGVN, -XX:+StressCCP, -XX:StressSeed=573790475]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>39844</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>263</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>1145704</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    clearer: C2
+    reader: C2
+</pre></td>
+<td nowrap valign=top width=10><pre>    clearer: package group free, core group free
+    reader: package group free, core group free
+</pre></td>
+<td        valign=top width=10>
+<pre>[-javaagent:D:\IntelliJ IDEA Community Edition 2025.2.1\lib\idea_rt.jar=6672, -Dfile.encoding=UTF-8, -XX:+UseBiasedLocking, -XX:+StressLCM, -XX:+StressGCM, -XX:+StressIGVN, -XX:+StressCCP, -XX:StressSeed=631833546]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>55559</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>289</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>1099243</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    clearer: C2
+    reader: C2
+</pre></td>
+<td nowrap valign=top width=10><pre>    clearer: package group free, core group free
+    reader: package group free, core group free
+</pre></td>
+<td        valign=top width=10>
+<pre>[-javaagent:D:\IntelliJ IDEA Community Edition 2025.2.1\lib\idea_rt.jar=6672, -Dfile.encoding=UTF-8, -XX:+UseBiasedLocking, -XX:+StressLCM, -XX:+StressGCM, -XX:+StressIGVN, -XX:+StressCCP, -XX:StressSeed=864135314]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>35921</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>304</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>1231506</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    clearer: C2
+    reader: C2
+</pre></td>
+<td nowrap valign=top width=10><pre>    clearer: package group free, core group free
+    reader: package group free, core group free
+</pre></td>
+<td        valign=top width=10>
+<pre>[-javaagent:D:\IntelliJ IDEA Community Edition 2025.2.1\lib\idea_rt.jar=6672, -Dfile.encoding=UTF-8, -XX:-UseBiasedLocking]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>37729</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>268</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>1219494</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    clearer: C2
+    reader: C2
+</pre></td>
+<td nowrap valign=top width=10><pre>    clearer: package group free, core group free
+    reader: package group free, core group free
+</pre></td>
+<td        valign=top width=10>
+<pre>[-javaagent:D:\IntelliJ IDEA Community Edition 2025.2.1\lib\idea_rt.jar=6672, -Dfile.encoding=UTF-8, -XX:-UseBiasedLocking, -XX:+StressLCM, -XX:+StressGCM, -XX:+StressIGVN, -XX:+StressCCP, -XX:StressSeed=1753313368]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>39235</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>384</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>1248592</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    clearer: C2
+    reader: C2
+</pre></td>
+<td nowrap valign=top width=10><pre>    clearer: package group free, core group free
+    reader: package group free, core group free
+</pre></td>
+<td        valign=top width=10>
+<pre>[-javaagent:D:\IntelliJ IDEA Community Edition 2025.2.1\lib\idea_rt.jar=6672, -Dfile.encoding=UTF-8, -XX:-UseBiasedLocking, -XX:+StressLCM, -XX:+StressGCM, -XX:+StressIGVN, -XX:+StressCCP, -XX:StressSeed=223778238]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>14731</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>284</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>1416556</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    clearer: C2
+    reader: C2
+</pre></td>
+<td nowrap valign=top width=10><pre>    clearer: package group free, core group free
+    reader: package group free, core group free
+</pre></td>
+<td        valign=top width=10>
+<pre>[-javaagent:D:\IntelliJ IDEA Community Edition 2025.2.1\lib\idea_rt.jar=6672, -Dfile.encoding=UTF-8, -XX:-UseBiasedLocking, -XX:+StressLCM, -XX:+StressGCM, -XX:+StressIGVN, -XX:+StressCCP, -XX:StressSeed=465594596]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>44871</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>326</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>1212294</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    clearer: C2
+    reader: C2
+</pre></td>
+<td nowrap valign=top width=10><pre>    clearer: package group free, core group free
+    reader: package group free, core group free
+</pre></td>
+<td        valign=top width=10>
+<pre>[-javaagent:D:\IntelliJ IDEA Community Edition 2025.2.1\lib\idea_rt.jar=6672, -Dfile.encoding=UTF-8, -XX:-UseBiasedLocking, -XX:+StressLCM, -XX:+StressGCM, -XX:+StressIGVN, -XX:+StressCCP, -XX:StressSeed=664453301]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>39246</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>283</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>1074602</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    clearer: C2
+    reader: C2
+</pre></td>
+<td nowrap valign=top width=10><pre>    clearer: package group free, core group free
+    reader: package group free, core group free
+</pre></td>
+<td        valign=top width=10>
+<pre>[-javaagent:D:\IntelliJ IDEA Community Edition 2025.2.1\lib\idea_rt.jar=6672, -Dfile.encoding=UTF-8, -XX:-UseBiasedLocking, -XX:+StressLCM, -XX:+StressGCM, -XX:+StressIGVN, -XX:+StressCCP, -XX:StressSeed=982781980]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>17565</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>318</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>1475128</td>
+</tr>
+</table>
+<h3>Messages</h3>
+<h3>VM Output Streams</h3>
+<h3>VM Error Streams</h3>
+</body>
+</html>

@@ -1,0 +1,26 @@
+"Benchmark","Mode","Threads","Samples","Score","Score Error (99,9%)","Unit","Param: size"
+"com.example.concurrentmap.ConcurrentHashMapBenchmark.concurrentGet","avgt",1,30,"0,017674","0,000210","us/op",1000
+"com.example.concurrentmap.ConcurrentHashMapBenchmark.concurrentGet","avgt",1,30,"0,021795","0,003530","us/op",5000
+"com.example.concurrentmap.ConcurrentHashMapBenchmark.concurrentGet","avgt",1,30,"0,022435","0,002421","us/op",10000
+"com.example.concurrentmap.ConcurrentHashMapBenchmark.concurrentGet","avgt",1,30,"0,089020","0,002843","us/op",50000
+"com.example.concurrentmap.ConcurrentHashMapBenchmark.concurrentGet","avgt",1,30,"0,099099","0,002452","us/op",100000
+"com.example.concurrentmap.ConcurrentHashMapBenchmark.concurrentPut","avgt",1,30,"0,051864","0,007414","us/op",1000
+"com.example.concurrentmap.ConcurrentHashMapBenchmark.concurrentPut","avgt",1,30,"0,068811","0,002140","us/op",5000
+"com.example.concurrentmap.ConcurrentHashMapBenchmark.concurrentPut","avgt",1,30,"0,062019","0,001205","us/op",10000
+"com.example.concurrentmap.ConcurrentHashMapBenchmark.concurrentPut","avgt",1,30,"0,194732","0,012922","us/op",50000
+"com.example.concurrentmap.ConcurrentHashMapBenchmark.concurrentPut","avgt",1,30,"0,220232","0,009312","us/op",100000
+"com.example.concurrentmap.ConcurrentHashMapBenchmark.plainMapGet","avgt",1,30,"0,015150","0,000820","us/op",1000
+"com.example.concurrentmap.ConcurrentHashMapBenchmark.plainMapGet","avgt",1,30,"0,014148","0,000690","us/op",5000
+"com.example.concurrentmap.ConcurrentHashMapBenchmark.plainMapGet","avgt",1,30,"0,015076","0,000114","us/op",10000
+"com.example.concurrentmap.ConcurrentHashMapBenchmark.plainMapGet","avgt",1,30,"0,041989","0,001103","us/op",50000
+"com.example.concurrentmap.ConcurrentHashMapBenchmark.plainMapGet","avgt",1,30,"0,061836","0,001455","us/op",100000
+"com.example.concurrentmap.ConcurrentHashMapBenchmark.syncMapGet","avgt",1,30,"0,018303","0,000415","us/op",1000
+"com.example.concurrentmap.ConcurrentHashMapBenchmark.syncMapGet","avgt",1,30,"0,018839","0,000488","us/op",5000
+"com.example.concurrentmap.ConcurrentHashMapBenchmark.syncMapGet","avgt",1,30,"0,020548","0,000203","us/op",10000
+"com.example.concurrentmap.ConcurrentHashMapBenchmark.syncMapGet","avgt",1,30,"0,059628","0,002813","us/op",50000
+"com.example.concurrentmap.ConcurrentHashMapBenchmark.syncMapGet","avgt",1,30,"0,074510","0,001740","us/op",100000
+"com.example.concurrentmap.ConcurrentHashMapBenchmark.syncMapPut","avgt",1,30,"0,032044","0,003026","us/op",1000
+"com.example.concurrentmap.ConcurrentHashMapBenchmark.syncMapPut","avgt",1,30,"0,037185","0,004019","us/op",5000
+"com.example.concurrentmap.ConcurrentHashMapBenchmark.syncMapPut","avgt",1,30,"0,038552","0,000528","us/op",10000
+"com.example.concurrentmap.ConcurrentHashMapBenchmark.syncMapPut","avgt",1,30,"0,099025","0,004671","us/op",50000
+"com.example.concurrentmap.ConcurrentHashMapBenchmark.syncMapPut","avgt",1,30,"0,138652","0,003912","us/op",100000
